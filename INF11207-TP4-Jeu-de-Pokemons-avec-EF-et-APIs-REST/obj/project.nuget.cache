@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "fyd1a9rUy2kp3zLeMy0zmpCpBHYsO+WVoqgYUtSZKjqurOodWeiED3RjEMsU0jAi3aGHz1ebIe7r7kAXppNvlw==",
+  "success": true,
+  "projectFilePath": "C:\\Universite\\POO2\\TP4\\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\basti\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
