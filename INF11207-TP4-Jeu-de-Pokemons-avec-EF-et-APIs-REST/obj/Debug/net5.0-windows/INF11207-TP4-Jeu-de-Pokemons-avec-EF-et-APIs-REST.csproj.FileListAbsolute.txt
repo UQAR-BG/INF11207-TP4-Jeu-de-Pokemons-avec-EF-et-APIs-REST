@@ -218,7 +218,6 @@ C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF1120
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\obj\Debug\net5.0-windows\ref\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST.dll
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\obj\Debug\net5.0-windows\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST.pdb
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\obj\Debug\net5.0-windows\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST.genruntimeconfig.cache
-C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\obj\Debug\net5.0-windows\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST.csprojAssemblyReference.cache
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\bin\Debug\net5.0-windows\Humanizer.dll
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\bin\Debug\net5.0-windows\Microsoft.Data.SqlClient.dll
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.dll

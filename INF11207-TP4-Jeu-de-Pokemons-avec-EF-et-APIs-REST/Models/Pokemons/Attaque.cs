@@ -54,7 +54,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
             foreach (OrigineType typeAdversaire in adversaire.Types)
             {
-                efficaciteTotale *= Game.ChercherEfficacite(type, typeAdversaire);
+                efficaciteTotale *= EfficaciteAttaque.ChercherEfficacite(type, typeAdversaire);
             }
             return damage * efficaciteTotale;
         }

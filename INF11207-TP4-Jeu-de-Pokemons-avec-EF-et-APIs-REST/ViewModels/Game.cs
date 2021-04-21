@@ -12,7 +12,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
         private static bool _sauvegardeChargee = false;
 
         private static List<Pokemon> _pokemonsBase;
-        private static List<EfficaciteAttaque> _efficacites;
 
         private static MainWindowViewModel _mainViewModel = new MainWindowViewModel();
         private static Dresseur _dresseur = new Dresseur(1);
@@ -63,15 +62,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
             get { return _pokemonsBase; }
         }
 
-        public static List<EfficaciteAttaque> Efficacites
-        {
-            get { return _efficacites; }
-        }
-
         public static void Initialiser()
         {
             ChargerPokemonsBase();
-            ChargerEfficacitesAttaques();
             _recherche = new Recherche();
             _recherche.Filtre = FiltreRecherche.Tous;
             Combat = new Combat(new Dresseur(1), new Dresseur(1), 0);
@@ -102,21 +95,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
                 MessageBox.Show("Le fichier PokemonInfo.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
                     "Données manquantes", MessageBoxButton.OK);
             }
-        }
-
-        public static void ChargerEfficacitesAttaques()
-        {
-            _efficacites = new List<EfficaciteAttaque>();
-            if (!Loader.Charger(out _efficacites, "Resources/Data/AttacksEffectiveness.json"))
-            {
-                MessageBox.Show("Le fichier AttacksEffectiveness.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
-            }
-        }
-
-        public static double ChercherEfficacite(OrigineType agresseur, OrigineType defenseur)
-        {
-            return Efficacites.Find(e => e.Attack == agresseur && e.Defend == defenseur).Effectiveness;
         }
     }
 }

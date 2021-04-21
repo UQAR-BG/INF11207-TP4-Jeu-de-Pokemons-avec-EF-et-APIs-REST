@@ -1,4 +1,6 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
+using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
@@ -39,6 +41,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
         {
             Game.Initialiser();
             InitializeViewModels();
+
+            EfficaciteAttaque.ChargerEfficacitesDepuisFichier();
 
             VueActuelle = accueilViewModel;
             CommandeNavigation = new RelayCommandWithParam<string>(Navigation);
