@@ -49,5 +49,21 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
 
             return chargementReussi;
         }
+
+        public static string Lire(string nomFichier)
+        {
+            string contenuFichier;
+
+            try
+            {
+                contenuFichier = File.ReadAllText(nomFichier);
+            }
+            catch (JsonSerializationException)
+            {
+                contenuFichier = "";
+            }
+
+            return contenuFichier;
+        }
     }
 }

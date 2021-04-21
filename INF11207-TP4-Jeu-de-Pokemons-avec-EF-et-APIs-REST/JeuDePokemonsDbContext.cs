@@ -6,6 +6,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
     public class JeuDePokemonsDbContext : DbContext
     {
         public DbSet<EfficaciteAttaque> Efficacites { get; set; }
+        public DbSet<Correspondance> Correspondances { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -24,6 +25,12 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(ea => ea.Defend).IsRequired();
                 e.Property(ea => ea.Effectiveness).IsRequired();
                 e.HasData(EfficaciteAttaque.ChargerEfficacitesDepuisFichier());
+            });
+
+            modelBuilder.Entity<Correspondance>(e => {
+                e.HasKey(c => c.CorrespondanceId);
+                e.Property(c => c.CorrespondancesSerialisee).IsRequired();
+                e.HasData(Correspondance.ChargerCorrespondancesDepuisFichier());
             });
         }
     }

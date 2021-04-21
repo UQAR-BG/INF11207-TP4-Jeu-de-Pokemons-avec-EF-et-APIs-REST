@@ -1,7 +1,5 @@
-﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Windows;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -15,12 +13,12 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [JsonConstructor]
         public GuidePourDebloquerPokemons()
         {
-            LireCorrespondances();
+            CorrespondanceNiveauPokemon = Correspondance.ShowCorrespondances();
         }
 
         public GuidePourDebloquerPokemons(int niveauDresseur)
         {
-            LireCorrespondances();
+            CorrespondanceNiveauPokemon = Correspondance.ShowCorrespondances();
             AppliquerCorrespondance(niveauDresseur);
         }
 
@@ -36,18 +34,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                     niveauDresseur--;
                 }
             }
-        }
-
-        private void LireCorrespondances()
-        {
-            Dictionary<int, List<int>> correspondance;
-
-            if (!Loader.Charger(out correspondance, "Resources/Data/CorrespondanceNiveauPokemons.json"))
-            {
-                MessageBox.Show("Le fichier CorrespondanceNiveauPokemons.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
-            }
-            CorrespondanceNiveauPokemon = correspondance;
         }
 
         private void AppliquerCorrespondanceParNiveau(int niveauDresseur)
