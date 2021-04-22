@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Windows;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -26,12 +25,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public static List<EfficaciteAttaque> ChargerEfficacitesDepuisFichier()
         {
-            List<EfficaciteAttaque> _efficacites = new List<EfficaciteAttaque>();
-            if (!Loader.Charger(out _efficacites, "Resources/Data/AttacksEffectiveness.json"))
-            {
-                MessageBox.Show("Le fichier AttacksEffectiveness.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
-            }
+            List<EfficaciteAttaque> _efficacites = Loader.ChargerDepuisFichier<EfficaciteAttaque>("Resources/Data/AttacksEffectiveness.json");
 
             for (int i = 0; i < _efficacites.Count; i++)
             {

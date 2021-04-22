@@ -58,7 +58,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

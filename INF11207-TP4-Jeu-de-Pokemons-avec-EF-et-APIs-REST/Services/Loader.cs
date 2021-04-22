@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
 {
@@ -30,24 +32,16 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
             return sauvegardeReussie;
         }
 
-        public static bool Charger<T>(out T objetACharger, string nomFichier) where T : new()
+        public static List<T> ChargerDepuisFichier<T>(string nomFichier) where T : class
         {
-            bool chargementReussi = true;
-            objetACharger = new();
-            
-            try
+            List<T> objets = new List<T>();
+            if (!Charger(out objets, nomFichier))
             {
-                using (StreamReader contenuFichier = File.OpenText(nomFichier))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    objetACharger = (T)serializer.Deserialize(contenuFichier, typeof(T));
-                }
-            } catch (JsonSerializationException)
-            {
-                chargementReussi = false;
+                MessageBox.Show($"Le fichier {nomFichier} est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
+                    "Données manquantes", MessageBoxButton.OK);
             }
 
-            return chargementReussi;
+            return objets;
         }
 
         public static string Lire(string nomFichier)
@@ -64,6 +58,27 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
             }
 
             return contenuFichier;
+        }
+
+        public static bool Charger<T>(out T objetACharger, string nomFichier) where T : new()
+        {
+            bool chargementReussi = true;
+            objetACharger = new();
+
+            try
+            {
+                using (StreamReader contenuFichier = File.OpenText(nomFichier))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    objetACharger = (T)serializer.Deserialize(contenuFichier, typeof(T));
+                }
+            }
+            catch (JsonSerializationException)
+            {
+                chargementReussi = false;
+            }
+
+            return chargementReussi;
         }
     }
 }

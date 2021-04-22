@@ -11,8 +11,8 @@ false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\App.xaml
 20-875365939
-157-697077749
-77-997037620
+1581259430571
+791647735495
 2141430119361
 Views\Accueil.xaml;Views\ChoixAttaque.xaml;Views\ChoixEmplacement.xaml;Views\Combats.xaml;Views\CreationJoueur.xaml;Views\Inventaire.xaml;Views\Joueur.xaml;Views\LancementCombat.xaml;Views\MainWindow.xaml;Views\Pokemons.xaml;Views\Statistiques.xaml;Views\UserControls\ActionsPokemon.xaml;Views\UserControls\ActionsPokemonDebloque.xaml;Views\UserControls\AttaqueCondense.xaml;Views\UserControls\JaugeVie.xaml;Views\UserControls\JaugeXp.xaml;Views\UserControls\Menu.xaml;Views\UserControls\PokemonCombat.xaml;Views\UserControls\PokemonDetails.xaml;Views\UserControls\PokemonSimple.xaml;
 

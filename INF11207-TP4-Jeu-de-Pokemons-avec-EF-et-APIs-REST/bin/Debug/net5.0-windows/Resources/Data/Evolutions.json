@@ -1,0 +1,257 @@
+[
+	{
+		"EvolutionId": 1,
+		"Level": 16,
+		"To": "Ivysaur"
+	},
+	{
+		"EvolutionId": 2,
+		"Level": 32,
+		"To": "Venusaur"
+	},
+	{
+		"EvolutionId": 3,
+		"Level": 16,
+		"To": "Charmeleon"
+	},
+	{
+		"EvolutionId": 4,
+		"Level": 36,
+		"To": "Charizard"
+	},
+	{
+		"EvolutionId": 5,
+		"Level": 16,
+		"To": "Wartortle"
+	},
+	{
+		"EvolutionId": 6,
+		"Level": 36,
+		"To": "Blastoise"
+	},
+	{
+		"EvolutionId": 7,
+		"Level": 7,
+		"To": "Metapod"
+	},
+	{
+		"EvolutionId": 8,
+		"Level": 10,
+		"To": "Butterfree"
+	},
+	{
+		"EvolutionId": 9,
+		"Level": 7,
+		"To": "Kakuna"
+	},
+	{
+		"EvolutionId": 10,
+		"Level": 10,
+		"To": "Beedrill"
+	},
+	{
+		"EvolutionId": 11,
+		"Level": 18,
+		"To": "Pidgeotto"
+	},
+	{
+		"EvolutionId": 12,
+		"Level": 36,
+		"To": "Pidgeot"
+	},
+	{
+		"EvolutionId": 13,
+		"Level": 20,
+		"To": "Raticate"
+	},
+	{
+		"EvolutionId": 14,
+		"Level": 20,
+		"To": "Fearow"
+	},
+	{
+		"EvolutionId": 15,
+		"Level": 22,
+		"To": "Arbok"
+	},
+	{
+		"EvolutionId": 16,
+		"Level": 22,
+		"To": "Sandslash"
+	},
+	{
+		"EvolutionId": 17,
+		"Level": 16,
+		"To": "Nidorina"
+	},
+	{
+		"EvolutionId": 18,
+		"Level": 16,
+		"To": "Nidorino"
+	},
+	{
+		"EvolutionId": 19,
+		"Level": 22,
+		"To": "Golbat"
+	},
+	{
+		"EvolutionId": 20,
+		"Level": 21,
+		"To": "Gloom"
+	},
+	{
+		"EvolutionId": 21,
+		"Level": 24,
+		"To": "Parasect"
+	},
+	{
+		"EvolutionId": 22,
+		"Level": 31,
+		"To": "Venomoth"
+	},
+	{
+		"EvolutionId": 23,
+		"Level": 26,
+		"To": "Dugtrio"
+	},
+	{
+		"EvolutionId": 24,
+		"Level": 28,
+		"To": "Persian"
+	},
+	{
+		"EvolutionId": 25,
+		"Level": 33,
+		"To": "Golduck"
+	},
+	{
+		"EvolutionId": 26,
+		"Level": 28,
+		"To": "Primeape"
+	},
+	{
+		"EvolutionId": 27,
+		"Level": 25,
+		"To": "Poliwhirl"
+	},
+	{
+		"EvolutionId": 28,
+		"Level": 16,
+		"To": "Kadabra"
+	},
+	{
+		"EvolutionId": 29,
+		"Level": 28,
+		"To": "Machoke"
+	},
+	{
+		"EvolutionId": 30,
+		"Level": 21,
+		"To": "Weepinbell"
+	},
+	{
+		"EvolutionId": 31,
+		"Level": 30,
+		"To": "Tentacruel"
+	},
+	{
+		"EvolutionId": 32,
+		"Level": 25,
+		"To": "Graveler"
+	},
+	{
+		"EvolutionId": 33,
+		"Level": 40,
+		"To": "Rapidash"
+	},
+	{
+		"EvolutionId": 34,
+		"Level": 30,
+		"To": "Magneton"
+	},
+	{
+		"EvolutionId": 35,
+		"Level": 31,
+		"To": "Dodrio"
+	},
+	{
+		"EvolutionId": 36,
+		"Level": 34,
+		"To": "Dewgong"
+	},
+	{
+		"EvolutionId": 37,
+		"Level": 38,
+		"To": "Muk"
+	},
+	{
+		"EvolutionId": 38,
+		"Level": 25,
+		"To": "Haunter"
+	},
+	{
+		"EvolutionId": 39,
+		"Level": 26,
+		"To": "Hypno"
+	},
+	{
+		"EvolutionId": 40,
+		"Level": 28,
+		"To": "Kingler"
+	},
+	{
+		"EvolutionId": 41,
+		"Level": 30,
+		"To": "Electrode"
+	},
+	{
+		"EvolutionId": 42,
+		"Level": 28,
+		"To": "Marowak"
+	},
+	{
+		"EvolutionId": 43,
+		"Level": 35,
+		"To": "Weezing"
+	},
+	{
+		"EvolutionId": 44,
+		"Level": 42,
+		"To": "Rhydon"
+	},
+	{
+		"EvolutionId": 45,
+		"Level": 32,
+		"To": "Seadra"
+	},
+	{
+		"EvolutionId": 46,
+		"Level": 33,
+		"To": "Seaking"
+	},
+	{
+		"EvolutionId": 47,
+		"Level": 20,
+		"To": "Gyarados"
+	},
+	{
+		"EvolutionId": 48,
+		"Level": 40,
+		"To": "Omastar"
+	},
+	{
+		"EvolutionId": 49,
+		"Level": 40,
+		"To": "Kabutops"
+	},
+	{
+		"EvolutionId": 50,
+		"Level": 30,
+		"To": "Dragonair"
+	},
+	{
+		"EvolutionId": 51,
+		"Level": 55,
+		"To": "Dragonite"
+	}
+]

@@ -10,6 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/attackseffectiveness.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/correspondanceniveaupokemons.json")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/evolutions.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/invitationspardefaut.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/pokemonachetepardefaut.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/pokemoninfo.json")]

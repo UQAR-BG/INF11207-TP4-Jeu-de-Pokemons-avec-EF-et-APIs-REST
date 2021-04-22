@@ -1,8 +1,5 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Enums;
-using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
-using System.Collections.Generic;
-using System.Windows;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -62,18 +59,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 efficaciteTotale *= EfficaciteAttaque.ChercherEfficacite(type, typeAdversaire);
             }
             return damage * efficaciteTotale;
-        }
-
-        public static List<Attaque> ChargerAttaquesDepuisFichier()
-        {
-            List<Attaque> attacks = new List<Attaque>();
-            if (!Loader.Charger(out attacks, "Resources/Data/Attacks.json"))
-            {
-                MessageBox.Show("Le fichier Attacks.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
-            }
-
-            return attacks;
         }
     }
 }

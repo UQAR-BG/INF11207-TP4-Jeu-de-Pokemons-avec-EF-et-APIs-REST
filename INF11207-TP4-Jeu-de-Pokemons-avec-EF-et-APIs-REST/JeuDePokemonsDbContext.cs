@@ -1,4 +1,5 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
+using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
@@ -8,6 +9,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<EfficaciteAttaque> Efficacites { get; set; }
         public DbSet<Correspondance> Correspondances { get; set; }
         public DbSet<Attaque> Attaques { get; set; }
+        public DbSet<Evolution> Evolutions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -39,7 +41,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(a => a.Name).IsRequired();
                 e.Property(a => a.Damage).IsRequired();
                 e.Property(a => a.Type).IsRequired();
-                e.HasData(Attaque.ChargerAttaquesDepuisFichier());
+                e.HasData(Loader.ChargerDepuisFichier<Attaque>("Resources/Data/Attacks.json"));
+            });
+
+            modelBuilder.Entity<Evolution>(e => {
+                e.HasKey(ev => ev.EvolutionId);
+                e.Property(ev => ev.Level).IsRequired();
+                e.Property(ev => ev.To).IsRequired();
+                e.HasData(Loader.ChargerDepuisFichier<Evolution>("Resources/Data/Evolutions.json"));
             });
         }
     }
