@@ -1514,7 +1514,7 @@
                 "Damage": 5.7
             },
             {
-                "Name": "Disarming VoIce",
+                "Name": "Disarming Voice",
                 "Type": "Fairy",
                 "Damage": 3.2
             },
@@ -1687,7 +1687,7 @@
                 "Damage": 5.75
             },
             {
-                "Name": "Disarming VoIce",
+                "Name": "Disarming Voice",
                 "Type": "Fairy",
                 "Damage": 3.2
             },
@@ -4362,7 +4362,7 @@
                 "Damage": 5.45
             },
             {
-                "Name": "VIce Grip",
+                "Name": "Vice Grip",
                 "Type": "Normal",
                 "Damage": 5.95
             },
@@ -4405,7 +4405,7 @@
                 "Damage": 5.45
             },
             {
-                "Name": "VIce Grip",
+                "Name": "Vice Grip",
                 "Type": "Normal",
                 "Damage": 5.95
             },
@@ -5655,7 +5655,7 @@
                 "Damage": 3.75
             },
             {
-                "Name": "VIce Grip",
+                "Name": "Vice Grip",
                 "Type": "Normal",
                 "Damage": 5.95
             },

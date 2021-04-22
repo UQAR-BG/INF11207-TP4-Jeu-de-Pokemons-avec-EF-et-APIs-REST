@@ -1,0 +1,746 @@
+[
+	{
+		"AttaqueId": 1,
+		"Name": "Vine Whip",
+		"Type": "Grass",
+		"Damage": 5.4
+	},
+	{
+		"AttaqueId": 2,
+		"Name": "Tackle",
+		"Type": "Normal",
+		"Damage": 5.45
+	},
+	{
+		"AttaqueId": 3,
+		"Name": "Sludge Bomb",
+		"Type": "Poison",
+		"Damage": 10.6
+	},
+	{
+		"AttaqueId": 4,
+		"Name": "Seed Bomb",
+		"Type": "Grass",
+		"Damage": 8.35
+	},
+	{
+		"AttaqueId": 5,
+		"Name": "Power Whip",
+		"Type": "Grass",
+		"Damage": 12.5
+	},
+	{
+		"AttaqueId": 6,
+		"Name": "Razor Leaf",
+		"Type": "Grass",
+		"Damage": 5.15
+	},
+	{
+		"AttaqueId": 7,
+		"Name": "Solar Beam",
+		"Type": "Grass",
+		"Damage": 12.25
+	},
+	{
+		"AttaqueId": 8,
+		"Name": "Petal Blizzard",
+		"Type": "Grass",
+		"Damage": 10.15
+	},
+	{
+		"AttaqueId": 9,
+		"Name": "Ember",
+		"Type": "Fire",
+		"Damage": 4.75
+	},
+	{
+		"AttaqueId": 10,
+		"Name": "Scratch",
+		"Type": "Normal",
+		"Damage": 6.0
+	},
+	{
+		"AttaqueId": 11,
+		"Name": "Flame Charge",
+		"Type": "Fire",
+		"Damage": 4.05
+	},
+	{
+		"AttaqueId": 12,
+		"Name": "Flame Burst",
+		"Type": "Fire",
+		"Damage": 7.15
+	},
+	{
+		"AttaqueId": 13,
+		"Name": "Flamethrower",
+		"Type": "Fire",
+		"Damage": 9.5
+	},
+	{
+		"AttaqueId": 14,
+		"Name": "Fire Punch",
+		"Type": "Fire",
+		"Damage": 7.15
+	},
+	{
+		"AttaqueId": 15,
+		"Name": "Wing Attack",
+		"Type": "Flying",
+		"Damage": 6.0
+	},
+	{
+		"AttaqueId": 16,
+		"Name": "Fire Blast",
+		"Type": "Fire",
+		"Damage": 12.2
+	},
+	{
+		"AttaqueId": 17,
+		"Name": "Dragon Claw",
+		"Type": "Dragon",
+		"Damage": 10.95
+	},
+	{
+		"AttaqueId": 18,
+		"Name": "Bubble",
+		"Type": "Water",
+		"Damage": 5.45
+	},
+	{
+		"AttaqueId": 19,
+		"Name": "Aqua Jet",
+		"Type": "Water",
+		"Damage": 5.3
+	},
+	{
+		"AttaqueId": 20,
+		"Name": "Aqua Tail",
+		"Type": "Water",
+		"Damage": 9.55
+	},
+	{
+		"AttaqueId": 21,
+		"Name": "Water Pulse",
+		"Type": "Water",
+		"Damage": 5.3
+	},
+	{
+		"AttaqueId": 22,
+		"Name": "Water Gun",
+		"Type": "Water",
+		"Damage": 6.0
+	},
+	{
+		"AttaqueId": 23,
+		"Name": "Bite",
+		"Type": "Dark",
+		"Damage": 6.0
+	},
+	{
+		"AttaqueId": 24,
+		"Name": "Ice Beam",
+		"Type": "Ice",
+		"Damage": 8.9
+	},
+	{
+		"AttaqueId": 25,
+		"Name": "Hydro Pump",
+		"Type": "Water",
+		"Damage": 11.85
+	},
+	{
+		"AttaqueId": 26,
+		"Name": "Flash Cannon",
+		"Type": "Steel",
+		"Damage": 7.7
+	},
+	{
+		"AttaqueId": 27,
+		"Name": "Bug Bite",
+		"Type": "Bug",
+		"Damage": 5.55
+	},
+	{
+		"AttaqueId": 28,
+		"Name": "Struggle",
+		"Type": "Normal",
+		"Damage": 4.4
+	},
+	{
+		"AttaqueId": 29,
+		"Name": "Confusion",
+		"Type": "Psychic",
+		"Damage": 4.95
+	},
+	{
+		"AttaqueId": 30,
+		"Name": "Bug Buzz",
+		"Type": "Bug",
+		"Damage": 8.8
+	},
+	{
+		"AttaqueId": 31,
+		"Name": "Psychic",
+		"Type": "Psychic",
+		"Damage": 9.8
+	},
+	{
+		"AttaqueId": 32,
+		"Name": "Signal Beam",
+		"Type": "Bug",
+		"Damage": 7.25
+	},
+	{
+		"AttaqueId": 33,
+		"Name": "Poison Sting",
+		"Type": "Poison",
+		"Damage": 5.15
+	},
+	{
+		"AttaqueId": 34,
+		"Name": "Poison Jab",
+		"Type": "Poison",
+		"Damage": 5.7
+	},
+	{
+		"AttaqueId": 35,
+		"Name": "Aerial Ace",
+		"Type": "Flying",
+		"Damage": 5.15
+	},
+	{
+		"AttaqueId": 36,
+		"Name": "X-Scissor",
+		"Type": "Bug",
+		"Damage": 8.35
+	},
+	{
+		"AttaqueId": 37,
+		"Name": "Quick Attack",
+		"Type": "Normal",
+		"Damage": 3.75
+	},
+	{
+		"AttaqueId": 38,
+		"Name": "Twister",
+		"Type": "Dragon",
+		"Damage": 4.65
+	},
+	{
+		"AttaqueId": 39,
+		"Name": "Air Cutter",
+		"Type": "Flying",
+		"Damage": 4.55
+	},
+	{
+		"AttaqueId": 40,
+		"Name": "Steel Wing",
+		"Type": "Steel",
+		"Damage": 5.65
+	},
+	{
+		"AttaqueId": 41,
+		"Name": "Hurricane",
+		"Type": "Flying",
+		"Damage": 12.5
+	},
+	{
+		"AttaqueId": 42,
+		"Name": "Dig",
+		"Type": "Ground",
+		"Damage": 6.05
+	},
+	{
+		"AttaqueId": 43,
+		"Name": "Hyper Fang",
+		"Type": "Normal",
+		"Damage": 8.35
+	},
+	{
+		"AttaqueId": 44,
+		"Name": "Body Slam",
+		"Type": "Normal",
+		"Damage": 12.8
+	},
+	{
+		"AttaqueId": 45,
+		"Name": "Hyper Beam",
+		"Type": "Normal",
+		"Damage": 12.0
+	},
+	{
+		"AttaqueId": 46,
+		"Name": "Peck",
+		"Type": "Flying",
+		"Damage": 4.35
+	},
+	{
+		"AttaqueId": 47,
+		"Name": "Drill Peck",
+		"Type": "Flying",
+		"Damage": 7.4
+	},
+	{
+		"AttaqueId": 48,
+		"Name": "Drill Run",
+		"Type": "Ground",
+		"Damage": 7.35
+	},
+	{
+		"AttaqueId": 49,
+		"Name": "Acid",
+		"Type": "Poison",
+		"Damage": 4.75
+	},
+	{
+		"AttaqueId": 50,
+		"Name": "Wrap",
+		"Type": "Normal",
+		"Damage": 3.15
+	},
+	{
+		"AttaqueId": 51,
+		"Name": "Gunk Shot",
+		"Type": "Poison",
+		"Damage": 10.85
+	},
+	{
+		"AttaqueId": 52,
+		"Name": "Dark Pulse",
+		"Type": "Dark",
+		"Damage": 6.45
+	},
+	{
+		"AttaqueId": 53,
+		"Name": "Sludge Wave",
+		"Type": "Poison",
+		"Damage": 10.3
+	},
+	{
+		"AttaqueId": 54,
+		"Name": "Thunder Shock",
+		"Type": "Electric",
+		"Damage": 4.15
+	},
+	{
+		"AttaqueId": 55,
+		"Name": "Discharge",
+		"Type": "Electric",
+		"Damage": 7.0
+	},
+	{
+		"AttaqueId": 56,
+		"Name": "Thunderbolt",
+		"Type": "Electric",
+		"Damage": 10.2
+	},
+	{
+		"AttaqueId": 57,
+		"Name": "Thunder",
+		"Type": "Electric",
+		"Damage": 11.65
+	},
+	{
+		"AttaqueId": 58,
+		"Name": "Spark",
+		"Type": "Electric",
+		"Damage": 5.0
+	},
+	{
+		"AttaqueId": 59,
+		"Name": "Brick Break",
+		"Type": "Fighting",
+		"Damage": 9.4
+	},
+	{
+		"AttaqueId": 60,
+		"Name": "Thunder Punch",
+		"Type": "Electric",
+		"Damage": 8.35
+	},
+	{
+		"AttaqueId": 61,
+		"Name": "Mud Shot",
+		"Type": "Ground",
+		"Damage": 5.45
+	},
+	{
+		"AttaqueId": 62,
+		"Name": "Rock Slide",
+		"Type": "Rock",
+		"Damage": 7.8
+	},
+	{
+		"AttaqueId": 63,
+		"Name": "Rock Tomb",
+		"Type": "Rock",
+		"Damage": 4.4
+	},
+	{
+		"AttaqueId": 64,
+		"Name": "Metal Claw",
+		"Type": "Steel",
+		"Damage": 6.35
+	},
+	{
+		"AttaqueId": 65,
+		"Name": "Earthquake",
+		"Type": "Ground",
+		"Damage": 11.9
+	},
+	{
+		"AttaqueId": 66,
+		"Name": "Bulldoze",
+		"Type": "Ground",
+		"Damage": 5.15
+	},
+	{
+		"AttaqueId": 67,
+		"Name": "Poison Fang",
+		"Type": "Poison",
+		"Damage": 5.2
+	},
+	{
+		"AttaqueId": 68,
+		"Name": "Stone Edge",
+		"Type": "Rock",
+		"Damage": 12.9
+	},
+	{
+		"AttaqueId": 69,
+		"Name": "Horn Attack",
+		"Type": "Normal",
+		"Damage": 5.7
+	},
+	{
+		"AttaqueId": 70,
+		"Name": "Fury Cutter",
+		"Type": "Bug",
+		"Damage": 3.75
+	},
+	{
+		"AttaqueId": 71,
+		"Name": "Megahorn",
+		"Type": "Bug",
+		"Damage": 12.5
+	},
+	{
+		"AttaqueId": 72,
+		"Name": "Pound",
+		"Type": "Normal",
+		"Damage": 6.5
+	},
+	{
+		"AttaqueId": 73,
+		"Name": "Zen Headbutt",
+		"Type": "Psychic",
+		"Damage": 5.7
+	},
+	{
+		"AttaqueId": 74,
+		"Name": "Disarming Voice",
+		"Type": "Fairy",
+		"Damage": 3.2
+	},
+	{
+		"AttaqueId": 75,
+		"Name": "Moonblast",
+		"Type": "Fairy",
+		"Damage": 10.35
+	},
+	{
+		"AttaqueId": 76,
+		"Name": "Dazzling Gleam",
+		"Type": "Fairy",
+		"Damage": 6.55
+	},
+	{
+		"AttaqueId": 77,
+		"Name": "Feint Attack",
+		"Type": "Dark",
+		"Damage": 5.75
+	},
+	{
+		"AttaqueId": 78,
+		"Name": "Heat Wave",
+		"Type": "Fire",
+		"Damage": 10.55
+	},
+	{
+		"AttaqueId": 79,
+		"Name": "Play Rough",
+		"Type": "Fairy",
+		"Damage": 9.5
+	},
+	{
+		"AttaqueId": 80,
+		"Name": "Ominous Wind",
+		"Type": "Ghost",
+		"Damage": 4.85
+	},
+	{
+		"AttaqueId": 81,
+		"Name": "Cross Poison",
+		"Type": "Poison",
+		"Damage": 8.35
+	},
+	{
+		"AttaqueId": 82,
+		"Name": "Psybeam",
+		"Type": "Psychic",
+		"Damage": 5.25
+	},
+	{
+		"AttaqueId": 83,
+		"Name": "Mud Slap",
+		"Type": "Ground",
+		"Damage": 5.55
+	},
+	{
+		"AttaqueId": 84,
+		"Name": "Mud Bomb",
+		"Type": "Ground",
+		"Damage": 5.75
+	},
+	{
+		"AttaqueId": 85,
+		"Name": "Sucker Punch",
+		"Type": "Dark",
+		"Damage": 5.0
+	},
+	{
+		"AttaqueId": 86,
+		"Name": "Night Slash",
+		"Type": "Dark",
+		"Damage": 5.55
+	},
+	{
+		"AttaqueId": 87,
+		"Name": "Power Gem",
+		"Type": "Rock",
+		"Damage": 6.9
+	},
+	{
+		"AttaqueId": 88,
+		"Name": "Cross Chop",
+		"Type": "Fighting",
+		"Damage": 15.0
+	},
+	{
+		"AttaqueId": 89,
+		"Name": "Karate Chop",
+		"Type": "Fighting",
+		"Damage": 3.75
+	},
+	{
+		"AttaqueId": 90,
+		"Name": "Low Sweep",
+		"Type": "Fighting",
+		"Damage": 6.65
+	},
+	{
+		"AttaqueId": 91,
+		"Name": "Low Kick",
+		"Type": "Fighting",
+		"Damage": 4.15
+	},
+	{
+		"AttaqueId": 92,
+		"Name": "Flame Wheel",
+		"Type": "Fire",
+		"Damage": 4.35
+	},
+	{
+		"AttaqueId": 93,
+		"Name": "Fire Fang",
+		"Type": "Fire",
+		"Damage": 5.95
+	},
+	{
+		"AttaqueId": 94,
+		"Name": "Bubble",
+		"Type": "Water",
+		"Damage": 5.45
+	},
+	{
+		"AttaqueId": 95,
+		"Name": "Bubble Beam",
+		"Type": "Water",
+		"Damage": 5.15
+	},
+	{
+		"AttaqueId": 96,
+		"Name": "Scald",
+		"Type": "Water",
+		"Damage": 6.9
+	},
+	{
+		"AttaqueId": 97,
+		"Name": "Submission",
+		"Type": "Fighting",
+		"Damage": 7.15
+	},
+	{
+		"AttaqueId": 98,
+		"Name": "Ice Punch",
+		"Type": "Ice",
+		"Damage": 6.45
+	},
+	{
+		"AttaqueId": 99,
+		"Name": "Psyshock",
+		"Type": "Psychic",
+		"Damage": 7.4
+	},
+	{
+		"AttaqueId": 100,
+		"Name": "Shadow Ball",
+		"Type": "Ghost",
+		"Damage": 7.3
+	},
+	{
+		"AttaqueId": 101,
+		"Name": "Psycho Cut",
+		"Type": "Psychic",
+		"Damage": 6.15
+	},
+	{
+		"AttaqueId": 102,
+		"Name": "Bullet Punch",
+		"Type": "Steel",
+		"Damage": 4.15
+	},
+	{
+		"AttaqueId": 103,
+		"Name": "Leaf Blade",
+		"Type": "Grass",
+		"Damage": 9.8
+	},
+	{
+		"AttaqueId": 104,
+		"Name": "Rock Throw",
+		"Type": "Rock",
+		"Damage": 4.4
+	},
+	{
+		"AttaqueId": 105,
+		"Name": "Ancient Power",
+		"Type": "Rock",
+		"Damage": 4.85
+	},
+	{
+		"AttaqueId": 106,
+		"Name": "Magnet Bomb",
+		"Type": "Steel",
+		"Damage": 5.35
+	},
+	{
+		"AttaqueId": 107,
+		"Name": "Cut",
+		"Type": "Normal",
+		"Damage": 6.65
+	},
+	{
+		"AttaqueId": 108,
+		"Name": "Swift",
+		"Type": "Normal",
+		"Damage": 5.0
+	},
+	{
+		"AttaqueId": 109,
+		"Name": "Ice Shard",
+		"Type": "Ice",
+		"Damage": 5.35
+	},
+	{
+		"AttaqueId": 110,
+		"Name": "Lick",
+		"Type": "Ghost",
+		"Damage": 5.0
+	},
+	{
+		"AttaqueId": 111,
+		"Name": "Icy Wind",
+		"Type": "Ice",
+		"Damage": 3.3
+	},
+	{
+		"AttaqueId": 112,
+		"Name": "Frost Breath",
+		"Type": "Ice",
+		"Damage": 5.55
+	},
+	{
+		"AttaqueId": 113,
+		"Name": "Sludge",
+		"Type": "Poison",
+		"Damage": 5.75
+	},
+	{
+		"AttaqueId": 114,
+		"Name": "Shadow Claw",
+		"Type": "Ghost",
+		"Damage": 5.8
+	},
+	{
+		"AttaqueId": 115,
+		"Name": "Iron Head",
+		"Type": "Steel",
+		"Damage": 7.5
+	},
+	{
+		"AttaqueId": 116,
+		"Name": "Vice Grip",
+		"Type": "Normal",
+		"Damage": 5.95
+	},
+	{
+		"AttaqueId": 117,
+		"Name": "Rock Smash",
+		"Type": "Fighting",
+		"Damage": 5.3
+	},
+	{
+		"AttaqueId": 118,
+		"Name": "Bone Club",
+		"Type": "Ground",
+		"Damage": 7.8
+	},
+	{
+		"AttaqueId": 119,
+		"Name": "Stomp",
+		"Type": "Normal",
+		"Damage": 7.15
+	},
+	{
+		"AttaqueId": 120,
+		"Name": "Dragon Pulse",
+		"Type": "Dragon",
+		"Damage": 9.05
+	},
+	{
+		"AttaqueId": 121,
+		"Name": "Dragon Breath",
+		"Type": "Dragon",
+		"Damage": 6.0
+	},
+	{
+		"AttaqueId": 122,
+		"Name": "Draining Kiss",
+		"Type": "Fairy",
+		"Damage": 4.45
+	},
+	{
+		"AttaqueId": 123,
+		"Name": "Splash",
+		"Type": "Water",
+		"Damage": 0.0
+	},
+	{
+		"AttaqueId": 124,
+		"Name": "Brine",
+		"Type": "Water",
+		"Damage": 5.2
+	}
+]

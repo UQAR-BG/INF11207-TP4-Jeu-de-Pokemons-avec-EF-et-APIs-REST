@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Data\Attacks.json" />
     <None Remove="Resources\Data\AttacksEffectiveness.json" />
     <None Remove="Resources\Data\CorrespondanceNiveauPokemons.json" />
     <None Remove="Resources\Data\InvitationsParDefaut.json" />
@@ -648,6 +649,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Data\Attacks.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

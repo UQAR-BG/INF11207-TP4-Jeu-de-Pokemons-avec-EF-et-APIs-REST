@@ -164,5 +164,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/97.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/98.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/99.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/attacks.json")]
 
 
