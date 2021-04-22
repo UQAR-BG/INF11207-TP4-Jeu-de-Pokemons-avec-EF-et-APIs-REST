@@ -40,6 +40,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public Jauge() { }
 
-        public abstract void AugmenterNiveau(Personnage personnage);
+        protected abstract void AugmenterNiveau(Personnage personnage, int niveauxEnPlus);
     }
 }

@@ -35,7 +35,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
-        public override void AugmenterNiveau(Personnage personnage)
+        protected override void AugmenterNiveau(Personnage personnage, int niveauxEnPlus)
         {
             throw new NotImplementedException();
         }

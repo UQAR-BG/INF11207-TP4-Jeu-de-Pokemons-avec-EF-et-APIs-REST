@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -10,7 +9,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [JsonConstructor]
         public JaugeXp() { }
 
-        public int AjouterExperience(int experience)
+        public int AjouterExperience(Personnage personnage, int experience)
         {
             int niveauxEnPlus = 0;
             int experienceTotale = Value + experience;
@@ -21,12 +20,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 niveauxEnPlus += experienceTotale / MaxValue;
             }
 
+            AugmenterNiveau(personnage, niveauxEnPlus);
             return niveauxEnPlus;
         }
 
-        public override void AugmenterNiveau(Personnage personnage)
+        protected override void AugmenterNiveau(Personnage personnage, int niveauxEnPlus)
         {
-            throw new NotImplementedException();
+            personnage.Level += niveauxEnPlus;
         }
     }
 }

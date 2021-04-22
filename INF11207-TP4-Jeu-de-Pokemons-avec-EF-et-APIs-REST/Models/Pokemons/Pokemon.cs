@@ -266,8 +266,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public void TerminerUnCombat(ResultatCombat resultats)
         {
-            int niveauxEnPlus = XpGauge.AjouterExperience(resultats.Experience);
-            Level += niveauxEnPlus;
+            int niveauxEnPlus = XpGauge.AjouterExperience(this, resultats.Experience);
 
             for (int i = 0; i < niveauxEnPlus; i++)
             {
