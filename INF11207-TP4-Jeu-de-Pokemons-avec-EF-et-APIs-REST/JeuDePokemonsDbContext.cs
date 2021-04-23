@@ -11,6 +11,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<Attaque> Attaques { get; set; }
         public DbSet<Evolution> Evolutions { get; set; }
         public DbSet<Statistiques> Statistiques { get; set; }
+        public DbSet<JaugeXp> XpGauges { get; set; }
+        public DbSet<JaugeVie> HealthGauges { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -61,6 +63,18 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(s => s.CombatsTotal).IsRequired();
                 e.Property(s => s.CombatsGagnes).IsRequired();
                 e.Property(s => s.CombatsPerdus).IsRequired();
+            });
+
+            modelBuilder.Entity<JaugeXp>(e => {
+                e.HasKey(j => j.GaugeId);
+                e.Property(j => j.MaxValue).IsRequired();
+                e.Property(j => j.Value).IsRequired();
+            });
+
+            modelBuilder.Entity<JaugeVie>(e => {
+                e.HasKey(j => j.GaugeId);
+                e.Property(j => j.MaxValue).IsRequired();
+                e.Property(j => j.Value).IsRequired();
             });
         }
     }

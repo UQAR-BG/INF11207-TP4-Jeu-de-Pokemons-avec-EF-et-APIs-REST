@@ -99,6 +99,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         {
             Depot = new DepotPokemons();
             Invitations = new List<Invitation>();
+            XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
             Statistiques = Statistiques.GetStatistique(StatistiquesId);
         }
 
@@ -198,6 +199,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             if (Money >= prix && !pokemon.Achete)
             {
                 ModifierArgent(-prix);
+
                 pokemonAchete = (Pokemon)pokemon.Clone();
                 pokemonAchete.Acheter();
                 Depot.PokemonsAchetes.Add(pokemonAchete);

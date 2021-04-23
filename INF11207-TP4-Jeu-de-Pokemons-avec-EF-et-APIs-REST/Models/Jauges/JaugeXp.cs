@@ -2,7 +2,7 @@
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class JaugeXp : Jauge
+    public partial class JaugeXp : Jauge
     {
         public JaugeXp(int maxValue) : base(maxValue) { }
 
@@ -20,6 +20,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 niveauxEnPlus += experienceTotale / MaxValue;
             }
 
+            UpdateXpGauge(personnage.XpGaugeId, Value);
             AugmenterNiveau(personnage, niveauxEnPlus);
             return niveauxEnPlus;
         }

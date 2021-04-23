@@ -23,6 +23,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         private void CreerJoueur()
         {
+            JaugeXp.AddXpGauge(Dresseur.XpGauge);
+            Dresseur.XpGaugeId = JaugeXp.GetLatestId();
+
+            Jauge.CreerJauges(Dresseur.Depot.PokemonsAchetes[0]);
+
             Statistiques.AddStatistique(Dresseur.Statistiques);
             Dresseur.StatistiquesId = Statistiques.GetLatestId();
 

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
+using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;

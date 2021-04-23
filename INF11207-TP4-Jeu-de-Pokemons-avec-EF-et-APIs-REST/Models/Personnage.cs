@@ -1,4 +1,5 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
+using Newtonsoft.Json;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -8,6 +9,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         private string name;
         private int level;
+
+        [JsonIgnore]
         private JaugeXp xpGauge;
 
         public string Name
@@ -36,6 +39,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        public int XpGaugeId { get; set; }
+
+        [JsonIgnore]
         public JaugeXp XpGauge
         {
             get { return xpGauge; }

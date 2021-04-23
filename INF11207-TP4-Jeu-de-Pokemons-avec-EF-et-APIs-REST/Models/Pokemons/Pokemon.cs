@@ -14,6 +14,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         private int price;
         private int health;
         private Emplacement emplacement;
+        [JsonIgnore]
         private JaugeVie hpGauge;
         private Evolution evolution;
         private Guid idPokemonAchete;
@@ -128,6 +129,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        public int HpGaugeId { get; set; }
+
+        [JsonIgnore]
         public JaugeVie HpGauge
         {
             get { return hpGauge; }
@@ -228,7 +232,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         }
 
         [JsonConstructor]
-        public Pokemon() : base("", 1, 100) { }
+        public Pokemon() : base("", 1, 100) 
+        {
+            XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
+            HpGauge = JaugeVie.GetHpGauge(HpGaugeId);
+        }
 
         public object Clone()
         {
@@ -241,6 +249,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             if (idPokemonAchete.Equals(Guid.Empty))
             {
                 idPokemonAchete = Guid.NewGuid();
+                Jauge.CreerJauges(this);
             }
         }
 

@@ -3,7 +3,7 @@ using System;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class JaugeVie : Jauge
+    public partial class JaugeVie : Jauge
     {
         public JaugeVie(int value, int maxValue) : base(maxValue)
         {
@@ -33,6 +33,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 Value = 0;
             }
+            UpdateHpGauge(GaugeId, Value);
         }
 
         protected override void AugmenterNiveau(Personnage personnage, int niveauxEnPlus)
