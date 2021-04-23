@@ -156,6 +156,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 Statistiques.CombatsPerdus++;
             }
+            Statistiques.UpdateStatistique(Statistiques);
 
             foreach (EmplacementPokemon emplacement in Depot.Emplacements)
             {
@@ -200,7 +201,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 pokemonAchete = (Pokemon)pokemon.Clone();
                 pokemonAchete.Acheter();
                 Depot.PokemonsAchetes.Add(pokemonAchete);
+
                 Statistiques.PokemonsAchetes++;
+                Statistiques.UpdateStatistique(Statistiques);
             }
 
             return pokemonAchete;
