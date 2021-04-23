@@ -18,6 +18,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public DepotPokemons Depot { get; set; }
 
+        public int StatistiquesId { get; set; }
+        [JsonIgnore]
         public Statistiques Statistiques { get; set; }
 
         public List<Invitation> Invitations { get; set; }
@@ -97,6 +99,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         {
             Depot = new DepotPokemons();
             Invitations = new List<Invitation>();
+            Statistiques = Statistiques.GetStatistique(StatistiquesId);
         }
 
         public Dresseur(int level, string name = "", string firstName = "", int age = 18, int experience = 100, int money = 5000) : base(name, level, experience)
@@ -106,8 +109,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             Money = money;
             Guide = new GuidePourDebloquerPokemons(level);
             Depot = new DepotPokemons(level);
-            Statistiques = new Statistiques(money, 1);
             Invitations = new List<Invitation>();
+            Statistiques = new Statistiques(money, 1);
         }
 
         public bool EncorePokemonsValides()

@@ -23,6 +23,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         private void CreerJoueur()
         {
+            Statistiques.AddStatistique(Dresseur.Statistiques);
+            Dresseur.StatistiquesId = Statistiques.GetLatestId();
+
             Game.Naviguer("joueur");
         }
 

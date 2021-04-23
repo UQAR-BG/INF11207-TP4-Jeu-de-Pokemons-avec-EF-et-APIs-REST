@@ -10,6 +10,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<Correspondance> Correspondances { get; set; }
         public DbSet<Attaque> Attaques { get; set; }
         public DbSet<Evolution> Evolutions { get; set; }
+        public DbSet<Statistiques> Statistiques { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -49,6 +50,17 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(ev => ev.Level).IsRequired();
                 e.Property(ev => ev.To).IsRequired();
                 e.HasData(Loader.ChargerDepuisFichier<Evolution>("Resources/Data/Evolutions.json"));
+            });
+
+            modelBuilder.Entity<Statistiques>(e => {
+                e.HasKey(s => s.StatistiquesId);
+                e.Property(s => s.MontantAccumule).IsRequired();
+                e.Property(s => s.MontantDepense).IsRequired();
+                e.Property(s => s.PokemonsAchetes).IsRequired();
+                e.Property(s => s.PokemonsDebloques).IsRequired();
+                e.Property(s => s.CombatsTotal).IsRequired();
+                e.Property(s => s.CombatsGagnes).IsRequired();
+                e.Property(s => s.CombatsPerdus).IsRequired();
             });
         }
     }

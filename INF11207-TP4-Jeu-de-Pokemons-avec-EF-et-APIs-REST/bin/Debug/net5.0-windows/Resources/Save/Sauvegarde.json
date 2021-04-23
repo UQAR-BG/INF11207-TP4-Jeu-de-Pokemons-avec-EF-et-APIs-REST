@@ -1,8 +1,8 @@
 {
   "FirstName": "Bastien",
   "Name": "Goulet",
-  "Age": 18,
-  "PrintMoney": "5100$",
+  "Age": 23,
+  "PrintMoney": "5000$",
   "Depot": {
     "PokemonsAchetes": [
       {
@@ -14,6 +14,7 @@
         "PrintTypes": "Poison, Grass",
         "Evolue": true,
         "Evolution": {
+          "EvolutionId": 0,
           "Level": 16,
           "To": "Ivysaur"
         },
@@ -30,26 +31,31 @@
         "Image": "/Resources/Images/1.png",
         "Attacks": [
           {
+            "AttaqueId": 0,
             "Type": 4,
             "Name": "Vine Whip",
             "Damage": 5.4
           },
           {
+            "AttaqueId": 0,
             "Type": 0,
             "Name": "Tackle",
             "Damage": 5.45
           },
           {
+            "AttaqueId": 0,
             "Type": 7,
             "Name": "Sludge Bomb",
             "Damage": 10.6
           },
           {
+            "AttaqueId": 0,
             "Type": 4,
             "Name": "Seed Bomb",
             "Damage": 8.35
           },
           {
+            "AttaqueId": 0,
             "Type": 4,
             "Name": "Power Whip",
             "Damage": 12.5
@@ -62,7 +68,7 @@
         "Name": "Bulbasaur",
         "Level": 1,
         "XpGauge": {
-          "Value": 50,
+          "Value": 0,
           "MaxValue": 100
         }
       }
@@ -75,7 +81,7 @@
   },
   "Level": 1,
   "XpGauge": {
-    "Value": 50,
+    "Value": 0,
     "MaxValue": 100
   },
   "Guide": {
@@ -83,18 +89,8 @@
       1
     ]
   },
-  "Statistiques": {
-    "MontantAccumule": 5200,
-    "MontantDepense": 100,
-    "PokemonsAchetes": 1,
-    "PokemonsDebloques": 1,
-    "CombatsTotal": 1,
-    "CombatsGagnes": 1,
-    "CombatsPerdus": 0,
-    "PrintMontantAccumule": "5200$",
-    "PrintMontantDepense": "100$"
-  },
+  "StatistiquesId": 7,
   "Invitations": [],
-  "Money": 5100,
+  "Money": 5000,
   "IsValid": true
 }
