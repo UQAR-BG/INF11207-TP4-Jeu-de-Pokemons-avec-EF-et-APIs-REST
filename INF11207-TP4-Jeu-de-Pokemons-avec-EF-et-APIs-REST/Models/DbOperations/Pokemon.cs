@@ -13,6 +13,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             foreach (Pokemon pokemon in pokemonsDeBase)
             {
                 GenererTypesSerialises(pokemon);
+                GenererIdsAttaquesSerialises(pokemon);
             }
             return pokemonsDeBase;
         }
@@ -25,6 +26,25 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 pokemon.TypesSerialises = typesSerialises;
             }
+        }
+
+        private static void GenererIdsAttaquesSerialises(Pokemon pokemon)
+        {
+            List<int> idsAttaques = GenererListeIdsDesAttaques(pokemon.Attacks);
+            string idsAttaquesSerialises = Loader.GenererJson(idsAttaques);
+
+            pokemon.AttacksIdsSerialises = idsAttaquesSerialises;
+        }
+
+        private static List<int> GenererListeIdsDesAttaques(List<Attaque> attaques)
+        {
+            List<int> idsAttaques = new List<int>();
+
+            foreach (Attaque attaque in attaques)
+            {
+                idsAttaques.Add(attaque.AttaqueId);
+            }
+            return idsAttaques;
         }
     }
 }
