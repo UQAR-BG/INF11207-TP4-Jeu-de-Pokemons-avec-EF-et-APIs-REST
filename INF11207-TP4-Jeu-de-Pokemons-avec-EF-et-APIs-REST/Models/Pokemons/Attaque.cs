@@ -3,7 +3,7 @@ using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class Attaque : Binding
+    public partial class Attaque : Binding
     {
         public int AttaqueId { get; set; }
 

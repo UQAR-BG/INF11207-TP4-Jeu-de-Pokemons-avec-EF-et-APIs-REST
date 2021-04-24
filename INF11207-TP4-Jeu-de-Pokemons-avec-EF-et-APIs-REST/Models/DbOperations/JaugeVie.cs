@@ -7,7 +7,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public static JaugeVie GetHpGauge(int gaugeId)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
-            JaugeVie gauge = context.HealthGauges.SingleOrDefault(g => g.GaugeId == gaugeId);
+            JaugeVie gauge = context.HealthGauges.Find(gaugeId);
 
             if (gauge == null)
             {

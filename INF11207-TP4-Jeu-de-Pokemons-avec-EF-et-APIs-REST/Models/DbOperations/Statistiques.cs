@@ -7,7 +7,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public static Statistiques GetStatistique(int statsId)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
-            Statistiques stats = context.Statistiques.SingleOrDefault(s => s.StatistiquesId == statsId);
+            Statistiques stats = context.Statistiques.Find(statsId);
 
             if (stats == null)
             {

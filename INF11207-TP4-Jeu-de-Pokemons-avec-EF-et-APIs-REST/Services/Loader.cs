@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -57,7 +58,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
                     objetACharger = (T)serializer.Deserialize(contenuFichier, typeof(T));
                 }
             }
-            catch (JsonSerializationException)
+            catch (Exception e)
             {
                 chargementReussi = false;
             }

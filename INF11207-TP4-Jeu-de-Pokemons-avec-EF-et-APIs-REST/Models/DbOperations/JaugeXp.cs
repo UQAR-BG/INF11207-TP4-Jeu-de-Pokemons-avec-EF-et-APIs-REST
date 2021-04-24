@@ -7,7 +7,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public static JaugeXp GetXpGauge(int gaugeId)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
-            JaugeXp gauge = context.XpGauges.SingleOrDefault(g => g.GaugeId == gaugeId);
+            JaugeXp gauge = context.XpGauges.Find(gaugeId);
 
             if (gauge == null)
             {

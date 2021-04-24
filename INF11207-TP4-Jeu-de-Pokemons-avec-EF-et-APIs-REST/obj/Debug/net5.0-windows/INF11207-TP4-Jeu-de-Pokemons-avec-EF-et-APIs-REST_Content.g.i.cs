@@ -14,6 +14,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/invitationspardefaut.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/pokemonachetepardefaut.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/pokemoninfo.json")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/pokemoninfo_fordb.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/1.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/10.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/100.png")]

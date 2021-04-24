@@ -1,6 +1,7 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
 using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
 {
@@ -13,6 +14,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<Statistiques> Statistiques { get; set; }
         public DbSet<JaugeXp> XpGauges { get; set; }
         public DbSet<JaugeVie> HealthGauges { get; set; }
+        /*public DbSet<Pokemon> PokemonsDeBase { get; set; }
+        public DbSet<Pokemon> PokemonsAchetes { get; set; }*/
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -76,6 +79,55 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(j => j.MaxValue).IsRequired();
                 e.Property(j => j.Value).IsRequired();
             });
+
+            /*List<Pokemon> pokemonsDeBase = Pokemon.ChargerPokemonDeBase();
+
+            modelBuilder.Entity<Pokemon>(e =>
+            {
+                e.HasKey(p => p.Id);
+                e.Property(p => p.Name).IsRequired();
+                e.Property(p => p.Level).IsRequired();
+                e.Property(p => p.XpGaugeId);
+                e.Property(p => p.TypesSerialises);
+                e.Property(p => p.Evolue).IsRequired();
+                e.Property(p => p.EvolutionId);
+                e.Property(p => p.Description).IsRequired();
+                e.Property(p => p.ATK).IsRequired();
+                e.Property(p => p.DEF).IsRequired();
+                e.Property(p => p.Price).IsRequired();
+                e.Property(p => p.Health).IsRequired();
+                e.Property(p => p.HpGaugeId);
+                e.Property(p => p.Image).IsRequired();
+                e.Property(p => p.AttacksIdsSerialises);
+                e.Property(p => p.Achete).IsRequired();
+                e.Property(p => p.Equipe).IsRequired();
+                e.Property(p => p.Emplacement).IsRequired();
+                e.ToTable("PokemonsDeBase");
+                e.HasData(pokemonsDeBase);
+            });
+
+            modelBuilder.Entity<Pokemon>(e =>
+            {
+                e.HasKey(p => p.Id);
+                e.Property(p => p.Name).IsRequired();
+                e.Property(p => p.Level).IsRequired();
+                e.Property(p => p.XpGaugeId);
+                e.Property(p => p.TypesSerialises);
+                e.Property(p => p.Evolue).IsRequired();
+                e.Property(p => p.EvolutionId);
+                e.Property(p => p.Description).IsRequired();
+                e.Property(p => p.ATK).IsRequired();
+                e.Property(p => p.DEF).IsRequired();
+                e.Property(p => p.Price).IsRequired();
+                e.Property(p => p.Health).IsRequired();
+                e.Property(p => p.HpGaugeId);
+                e.Property(p => p.Image).IsRequired();
+                e.Property(p => p.AttacksIdsSerialises);
+                e.Property(p => p.Achete).IsRequired();
+                e.Property(p => p.Equipe).IsRequired();
+                e.Property(p => p.Emplacement).IsRequired();
+                e.ToTable("PokemonsAchetes");
+            });*/
         }
     }
 }

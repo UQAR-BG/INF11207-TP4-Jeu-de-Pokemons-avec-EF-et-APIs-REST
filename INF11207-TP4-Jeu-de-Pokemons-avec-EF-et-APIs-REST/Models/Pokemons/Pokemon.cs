@@ -47,13 +47,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
-        public bool Evolue
-        {
-            get { return evolution != null && !string.IsNullOrEmpty(evolution.To); }
-        }
-
         public int EvolutionId { get; set; }
 
+        public bool Evolue
+        {
+            get { return EvolutionId > 0 || evolution != null && !string.IsNullOrEmpty(evolution.To); }
+        }
+
+        [JsonIgnore]
         [NotMapped]
         public Evolution Evolution
         {
