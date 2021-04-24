@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class Evolution
+    public partial class Evolution
     {
         public int EvolutionId { get; set; }
         public int Level { get; set; }

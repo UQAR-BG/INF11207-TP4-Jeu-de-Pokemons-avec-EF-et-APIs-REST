@@ -3,6 +3,7 @@ using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -25,8 +26,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         private List<Attaque> attacks;
 
         public int Id { get; set; }
+
+        [NotMapped]
         public List<OrigineType> Types { get; set; }
 
+        [NotMapped]
         public string PrintTypes
         {
             get
@@ -45,6 +49,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             get { return evolution != null && !string.IsNullOrEmpty(evolution.To); }
         }
 
+        public int EvolutionId { get; set; }
+
+        [NotMapped]
         public Evolution Evolution
         {
             get { return evolution; }
@@ -110,6 +117,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        [NotMapped]
         public string PrintPrice
         {
             get { return $"{price}$"; }
@@ -131,6 +139,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public int HpGaugeId { get; set; }
 
+        [NotMapped]
         [JsonIgnore]
         public JaugeVie HpGauge
         {
@@ -158,6 +167,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        [NotMapped]
         public List<Attaque> Attacks
         {
             get { return attacks; }
@@ -218,6 +228,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        [NotMapped]
         public Guid IdPokemonAchete 
         { 
             get { return idPokemonAchete; }
@@ -236,6 +247,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         {
             XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
             HpGauge = JaugeVie.GetHpGauge(HpGaugeId);
+
+            Evolution = Evolution.GetEvolution(EvolutionId);
         }
 
         public object Clone()
