@@ -1,6 +1,4 @@
-﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
-using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -46,22 +44,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
             return objets;
         }
 
-        public static string Lire(string nomFichier)
-        {
-            string contenuFichier;
-
-            try
-            {
-                contenuFichier = File.ReadAllText(nomFichier);
-            }
-            catch (JsonSerializationException)
-            {
-                contenuFichier = "";
-            }
-
-            return contenuFichier;
-        }
-
         public static bool Charger<T>(out T objetACharger, string nomFichier) where T : new()
         {
             bool chargementReussi = true;
@@ -81,6 +63,38 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
             }
 
             return chargementReussi;
+        }
+
+        public static string Lire(string nomFichier)
+        {
+            string contenuFichier;
+
+            try
+            {
+                contenuFichier = File.ReadAllText(nomFichier);
+            }
+            catch (JsonSerializationException)
+            {
+                contenuFichier = "";
+            }
+
+            return contenuFichier;
+        }
+
+        public static string GenererJson<T>(T objetASeriaiser)
+        {
+            string objetSerialise;
+
+            try
+            {
+                objetSerialise = JsonConvert.SerializeObject(objetASeriaiser, Formatting.Indented);
+            } 
+            catch (JsonSerializationException)
+            {
+                objetSerialise = "";
+            }
+
+            return objetSerialise;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class Pokemon : Personnage, ICloneable, ICombattant
+    public partial class Pokemon : Personnage, ICloneable, ICombattant
     {
         private string description;
         private int atk;
@@ -29,6 +29,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         [NotMapped]
         public List<OrigineType> Types { get; set; }
+
+        [JsonIgnore]
+        public string TypesSerialises { get; set; }
 
         [NotMapped]
         public string PrintTypes
