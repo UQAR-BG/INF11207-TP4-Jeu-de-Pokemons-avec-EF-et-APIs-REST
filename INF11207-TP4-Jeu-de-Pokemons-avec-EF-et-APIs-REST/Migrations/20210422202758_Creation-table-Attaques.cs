@@ -163,7 +163,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     { 34, 5.7000000000000002, "Poison Jab", 7 },
                     { 33, 5.1500000000000004, "Poison Sting", 7 },
                     { 46, 4.3499999999999996, "Peck", 10 },
-                    { 124, 5.2000000000000002, "Brine", 2 }
+                    { 124, 5.2000000000000002, "Brine", 2 },
+                    { 125, 12.80000000000000, "Blizzard", 5 }
                 });
         }
 

@@ -138,7 +138,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
             ChoixEmplacement choix = new ChoixEmplacement();
             choix.ShowDialog();
 
-            int indexPokemon = Dresseur.Depot.ChercherIndexDePokemonAchete(Pokemon.IdPokemonAchete);
+            int indexPokemon = Dresseur.Depot.ChercherIndexDePokemonAchete(Pokemon.Id);
 
             Game.Dresseur.Equiper(indexPokemon, Game.Emplacement);
             MessageBox.Show($"{Pokemon.Name} a été équipé.", "Pokémon équipé", MessageBoxButton.OK);

@@ -64,7 +64,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         public static void Initialiser()
         {
-            ChargerPokemonsBase();
+            _pokemonsBase = Pokemon.GetPokemonsDeBase();
             _recherche = new Recherche();
             _recherche.Filtre = FiltreRecherche.Tous;
             Combat = new Combat(new Dresseur(1), new Dresseur(1), 0);
@@ -84,16 +84,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
             else
             {
                 MessageBox.Show("Une erreur s'est produite lors de la sauvegarde.", "Erreur", MessageBoxButton.OK);
-            }
-        }
-
-        public static void ChargerPokemonsBase()
-        {
-            _pokemonsBase = new List<Pokemon>();
-            if (!Loader.Charger(out _pokemonsBase, "Resources/Data/PokemonInfo.json"))
-            {
-                MessageBox.Show("Le fichier PokemonInfo.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
             }
         }
     }

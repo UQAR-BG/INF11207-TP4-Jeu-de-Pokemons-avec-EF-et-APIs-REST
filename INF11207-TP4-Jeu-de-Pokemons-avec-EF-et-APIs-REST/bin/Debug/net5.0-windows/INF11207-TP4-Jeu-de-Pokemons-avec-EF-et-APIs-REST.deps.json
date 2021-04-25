@@ -9,6 +9,7 @@
       "INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "5.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.5",
           "Newtonsoft.Json": "13.0.1"

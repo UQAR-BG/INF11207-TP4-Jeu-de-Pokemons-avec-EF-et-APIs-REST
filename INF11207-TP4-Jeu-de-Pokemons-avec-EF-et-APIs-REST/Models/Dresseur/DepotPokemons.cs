@@ -57,8 +57,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
             ChargerIndexPokemonsEquipes();
             RechargerEmplacements();
-
-            ChargerDepotParDefaut();
         }
 
         public bool Equipe(Emplacement emplacement)
@@ -68,9 +66,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             return IndexPokemonsEquipes[position] > -1;
         }
 
-        public int ChercherIndexDePokemonAchete(Guid idPokemonAchete)
+        public int ChercherIndexDePokemonAchete(int idPokemonAchete)
         {
-            return PokemonsAchetes.FindIndex(p => p.IdPokemonAchete.Equals(idPokemonAchete));
+            return PokemonsAchetes.FindIndex(p => p.Id.Equals(idPokemonAchete));
         }
 
         public void EquiperPokemon(Emplacement emplacement, int indexPokemon)
@@ -143,6 +141,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        public void ChargerDepotParDefaut()
+        {
+            PokemonsAchetes = new List<Pokemon>();
+            PokemonsAchetes.Add(Pokemon.Acheter("Bulbasaur"));
+            EquiperPokemon(0, 0);
+        }
+
         private void ChargerIndexPokemonsEquipes()
         {
             IndexPokemonsEquipes = new ObservableCollection<int>();
@@ -150,19 +155,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 IndexPokemonsEquipes.Add(-1);
             }
-        }
-
-        private void ChargerDepotParDefaut()
-        {
-            List<Pokemon> pokemonsAchetes;
-
-            if (!Loader.Charger(out pokemonsAchetes, "Resources/Data/PokemonAcheteParDefaut.json"))
-            {
-                MessageBox.Show("Le fichier PokemonAcheteParDefaut.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
-            }
-            PokemonsAchetes = pokemonsAchetes;
-            EquiperPokemon(0, 0);
         }
 
         private bool IndexValide(int indexPokemon)
@@ -179,7 +171,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             tempPokemonEquipe.Ordre = emplacement;
             if (tempPokemonEquipe.Equipe)
             {
-                indexPokemon = ChercherIndexDePokemonAchete(pokemon.Pokemon.IdPokemonAchete);
+                indexPokemon = ChercherIndexDePokemonAchete(pokemon.Pokemon.Id);
                 tempPokemonEquipe.Pokemon.Emplacement = emplacement;
             }
 

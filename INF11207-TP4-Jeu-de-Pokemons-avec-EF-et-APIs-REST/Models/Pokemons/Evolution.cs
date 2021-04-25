@@ -24,11 +24,15 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                     .Find(p => p.Name.Equals(To))
                     .Clone();
 
-                evolution.Acheter();
+                evolution.Achete = true;
+                evolution.Id = pokemon.Id;
+                evolution.HpGaugeId = pokemon.HpGaugeId;
+                evolution.HpGauge = pokemon.HpGauge;
                 evolution.ATK = pokemon.ATK;
                 evolution.DEF = pokemon.DEF;
                 evolution.Emplacement = pokemon.Emplacement;
                 evolution.Level = pokemon.Level;
+                evolution.XpGaugeId = pokemon.XpGaugeId;
                 evolution.XpGauge = pokemon.XpGauge;
 
                 return evolution;

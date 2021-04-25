@@ -18,7 +18,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [JsonIgnore]
         private JaugeVie hpGauge;
         private Evolution evolution;
-        private Guid idPokemonAchete;
         private string image;
         private bool achete;
         private bool equipe;
@@ -49,6 +48,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public int EvolutionId { get; set; }
 
+        [NotMapped]
         public bool Evolue
         {
             get { return EvolutionId > 0 || evolution != null && !string.IsNullOrEmpty(evolution.To); }
@@ -171,8 +171,10 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
-        [JsonIgnore]
         public string AttacksIdsSerialises { get; set; }
+
+        [NotMapped]
+        public List<int> AttacksIds { get; set; }
 
         [NotMapped]
         public List<Attaque> Attacks
@@ -235,22 +237,10 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
-        [NotMapped]
-        public Guid IdPokemonAchete 
-        { 
-            get { return idPokemonAchete; }
-            set
-            {
-                if (idPokemonAchete != value)
-                {
-                    idPokemonAchete = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         [JsonConstructor]
-        public Pokemon() : base("", 1, 100) 
+        public Pokemon() : base("", 1, 100) { }
+
+        public void ChargerProprietesDepuisBd()
         {
             XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
             HpGauge = JaugeVie.GetHpGauge(HpGaugeId);
@@ -261,16 +251,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public object Clone()
         {
             return MemberwiseClone();
-        }
-
-        public void Acheter()
-        {
-            Achete = true;
-            if (idPokemonAchete.Equals(Guid.Empty))
-            {
-                idPokemonAchete = Guid.NewGuid();
-                Jauge.CreerJauges(this);
-            }
         }
 
         public bool EncoreValide()

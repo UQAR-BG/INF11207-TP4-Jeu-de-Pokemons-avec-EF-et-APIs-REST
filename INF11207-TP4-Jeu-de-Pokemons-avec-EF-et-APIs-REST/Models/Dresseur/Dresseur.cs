@@ -200,8 +200,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 ModifierArgent(-prix);
 
-                pokemonAchete = (Pokemon)pokemon.Clone();
-                pokemonAchete.Acheter();
+                pokemonAchete = Pokemon.Acheter(pokemon.Name);
                 Depot.PokemonsAchetes.Add(pokemonAchete);
 
                 Statistiques.PokemonsAchetes++;
