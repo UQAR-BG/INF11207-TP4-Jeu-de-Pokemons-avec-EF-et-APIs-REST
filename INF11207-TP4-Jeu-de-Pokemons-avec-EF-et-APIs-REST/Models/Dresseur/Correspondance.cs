@@ -1,5 +1,4 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
@@ -16,14 +15,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             Dictionary<int, List<int>> correspondances;
             string correspondancesSerialisees = context.Correspondances.Find(1).CorrespondancesSerialisee;
 
-            try
-            {
-                correspondances = JsonConvert.DeserializeObject<Dictionary<int, List<int>>>(correspondancesSerialisees);
-            }
-            catch (JsonSerializationException)
-            {
-                correspondances = new Dictionary<int, List<int>>();
-            }
+            correspondances = Loader.DeserialiserDepuisJson<Dictionary<int, List<int>>>(correspondancesSerialisees);
 
             return correspondances;
         }

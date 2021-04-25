@@ -96,5 +96,20 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services
 
             return objetSerialise;
         }
+
+        public static T DeserialiserDepuisJson<T>(string objetSerialise) where T : new()
+        {
+            T objet;
+
+            try
+            {
+                objet = JsonConvert.DeserializeObject<T>(objetSerialise);
+            }
+            catch (JsonSerializationException)
+            {
+                objet = new T();
+            }
+            return objet;
+        }
     }
 }

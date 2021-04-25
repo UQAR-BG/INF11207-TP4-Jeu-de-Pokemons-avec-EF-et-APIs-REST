@@ -9,7 +9,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public static Pokemon Acheter(string nom)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
-            Pokemon pokemon = context.Pokemons.FirstOrDefault(p => p.Name.Equals(nom));
+            Pokemon pokemon = GetPokemonDeBase(nom);
 
             if (pokemon != null)
             {
@@ -19,6 +19,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
                 pokemonAchete.ChargerProprietesDepuisBd();
                 Jauge.CreerJauges(pokemonAchete);
+
+                pokemonAchete.Attacks = ChargerAttaques(pokemonAchete);
 
                 context.Pokemons.Add(pokemonAchete);
                 context.SaveChanges();
@@ -42,12 +44,38 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             return 0;
         }
 
+        public static Pokemon GetPokemon(int pokemonId)
+        {
+            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
+            Pokemon pokemon = context.Pokemons.Find(pokemonId);
+
+            if (pokemon == null)
+            {
+                return new Pokemon();
+            }
+
+            pokemon.Attacks = ChargerAttaques(pokemon);
+            return pokemon;
+        }
+
+        public static Pokemon GetPokemonDeBase(string nom)
+        {
+            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
+            Pokemon pokemon = context.Pokemons.FirstOrDefault(p => p.Name.Equals(nom));
+
+            return pokemon;
+        }
+
         public static List<Pokemon> GetPokemonsDeBase()
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
             List<Pokemon> pokemonsDeBase = context.Pokemons.Take(151).ToList();
 
-            return new List<Pokemon>();
+            foreach (Pokemon pokemonDeBase in pokemonsDeBase)
+            {
+                pokemonDeBase.Attacks = ChargerAttaques(pokemonDeBase);
+            }
+            return pokemonsDeBase;
         }
 
         public static List<Pokemon> ChargerPokemonDeBase()
@@ -61,6 +89,24 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 GenererIdsAttaquesSerialises(pokemon);
             }
             return pokemonsDeBase;
+        }
+
+        private static List<Attaque> ChargerAttaques(Pokemon pokemon)
+        {
+            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
+            List<Attaque> attaques = new List<Attaque>();
+
+            pokemon.AttacksIds = ChargerListeIdsAttaques(pokemon);
+            attaques = context.Attaques.Where(a => pokemon.AttacksIds.Contains(a.AttaqueId)).ToList();
+
+            return attaques;
+        }
+
+        private static List<int> ChargerListeIdsAttaques(Pokemon pokemon)
+        {
+            List<int> idsAttaques = Loader.DeserialiserDepuisJson<List<int>>(pokemon.AttacksIdsSerialises);
+
+            return idsAttaques;
         }
 
         private static void GenererTypesSerialises(Pokemon pokemon)
