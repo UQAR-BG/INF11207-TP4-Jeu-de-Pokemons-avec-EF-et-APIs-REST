@@ -43,7 +43,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
             if (Loader.Charger(out sauvegarde, Game.CheminVersSauvegarde))
             {
                 Game.Dresseur = sauvegarde;
-                Game.Dresseur.Depot.RechargerEmplacements();
+                Game.Dresseur.Depot = DepotPokemons.GetDepot(1);
                 MessageBox.Show("Sauvegarde chargée avec succès.", "Sauvegarde chargée", MessageBoxButton.OK);
                 Game.Naviguer("joueur");
             }

@@ -14,6 +14,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<JaugeXp> XpGauges { get; set; }
         public DbSet<JaugeVie> HealthGauges { get; set; }
         public DbSet<Pokemon> Pokemons { get; set; }
+        public DbSet<DepotPokemons> Depots { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -81,6 +82,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
             modelBuilder.Entity<Pokemon>(e =>
             {
                 e.HasKey(p => p.Id);
+                e.Property(p => p.DepotId);
                 e.Property(p => p.Name).IsRequired();
                 e.Property(p => p.Level).IsRequired();
                 e.Property(p => p.XpGaugeId).IsRequired();
@@ -98,6 +100,12 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(p => p.Equipe).IsRequired();
                 e.Property(p => p.Emplacement).IsRequired();
                 e.HasData(Pokemon.ChargerPokemonDeBase());
+            });
+
+            modelBuilder.Entity<DepotPokemons>(e => {
+                e.HasKey(d => d.DepotId);
+                e.Property(d => d.DresseurId);
+                e.Property(d => d.IndexPokemonsEquipesSerialises);
             });
         }
     }

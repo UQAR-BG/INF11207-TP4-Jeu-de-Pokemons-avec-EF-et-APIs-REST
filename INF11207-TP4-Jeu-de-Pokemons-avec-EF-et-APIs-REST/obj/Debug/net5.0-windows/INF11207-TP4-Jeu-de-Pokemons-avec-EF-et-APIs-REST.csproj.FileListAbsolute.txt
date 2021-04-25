@@ -257,4 +257,3 @@ C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF1120
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\bin\Debug\net5.0-windows\Resources\Data\Attacks.json
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\bin\Debug\net5.0-windows\Resources\Data\Evolutions.json
 C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\bin\Debug\net5.0-windows\Resources\Data\PokemonInfo_ForDB.json
-C:\Universite\POO2\TP4\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST\obj\Debug\net5.0-windows\INF11207-TP4-Jeu-de-Pokemons-avec-EF-et-APIs-REST.csprojAssemblyReference.cache

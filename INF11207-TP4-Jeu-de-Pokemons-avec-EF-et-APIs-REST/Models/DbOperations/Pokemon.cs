@@ -7,7 +7,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
     public partial class Pokemon
     {
-        public static Pokemon Acheter(string nom)
+        public static Pokemon Acheter(int depotId, string nom)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
             Pokemon pokemon = GetPokemonDeBase(nom);
@@ -17,6 +17,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 Pokemon pokemonAchete = (Pokemon)pokemon.Clone();
                 pokemonAchete.Id = 0;
                 pokemonAchete.Achete = true;
+                pokemonAchete.DepotId = depotId;
 
                 pokemonAchete.ChargerProprietesDepuisBd();
                 Jauge.CreerJauges(pokemonAchete);
@@ -55,6 +56,24 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
             pokemon.ChargerProprietesDepuisBd();
             return pokemon;
+        }
+
+        public static List<Pokemon> GetPokemonAchetes(int depotId)
+        {
+            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
+            List<Pokemon> pokemonsAchetes = new List<Pokemon>();
+            List<int> pokemonIds = new List<int>();
+
+            if (depotId > 0)
+            {
+                pokemonIds = context.Pokemons.Where(p => p.DepotId == depotId).Select(p => p.Id).ToList();
+            }
+
+            foreach (int pokemonId in pokemonIds)
+            {
+                pokemonsAchetes.Add(GetPokemon(pokemonId));
+            }
+            return pokemonsAchetes;
         }
 
         public static Pokemon GetPokemonDeBase(string nom)

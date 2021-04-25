@@ -1,12 +1,17 @@
 {
-  "FirstName": "Bastien",
-  "Name": "Goulet",
-  "Age": 23,
-  "PrintMoney": "5000$",
+  "DresseurId": 1,
+  "Guide": {
+    "IdPokemonsDebloques": [
+      1
+    ]
+  },
   "Depot": {
+    "DepotId": 4,
+    "DresseurId": 1,
     "PokemonsAchetes": [
       {
-        "Id": 155,
+        "Id": 159,
+        "DepotId": 4,
         "Types": [
           7,
           4
@@ -21,7 +26,7 @@
         "Price": 100,
         "PrintPrice": "100$",
         "Health": 45,
-        "HpGaugeId": 4,
+        "HpGaugeId": 8,
         "Image": "/Resources/Images/1.png",
         "AttacksIdsSerialises": "[\r\n  1,\r\n  2,\r\n  3,\r\n  4,\r\n  5\r\n]",
         "AttacksIds": [
@@ -64,28 +69,28 @@
           }
         ],
         "Achete": true,
-        "Equipe": false,
-        "Emplacement": 0,
+        "Equipe": true,
+        "Emplacement": 2,
         "Name": "Bulbasaur",
         "Level": 1,
-        "XpGaugeId": 8
+        "XpGaugeId": 17
       }
     ],
     "IndexPokemonsEquipes": [
-      0,
       -1,
-      -1
-    ]
+      -1,
+      0
+    ],
+    "IndexPokemonsEquipesSerialises": "[\r\n  0,\r\n  -1,\r\n  -1\r\n]"
   },
-  "Level": 1,
-  "Guide": {
-    "IdPokemonsDebloques": [
-      1
-    ]
-  },
-  "StatistiquesId": 3,
+  "StatistiquesId": 4,
   "Invitations": [],
+  "FirstName": "Bastien",
+  "Age": 23,
   "Money": 5000,
+  "PrintMoney": "5000$",
   "IsValid": true,
-  "XpGaugeId": 7
+  "Name": "Goulet",
+  "Level": 1,
+  "XpGaugeId": 16
 }

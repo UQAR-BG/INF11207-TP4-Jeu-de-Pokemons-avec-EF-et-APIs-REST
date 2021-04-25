@@ -26,6 +26,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public int Id { get; set; }
 
+        public int DepotId { get; set; }
+
         [NotMapped]
         public List<OrigineType> Types { get; set; }
 
@@ -220,16 +222,17 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             get { return emplacement; }
             set
             {
+                if (value == Emplacement.Desequipe)
+                {
+                    Equipe = false;
+                }
+                else
+                {
+                    Equipe = true;
+                }
+
                 if (emplacement != value)
                 {
-                    if (value == Emplacement.Desequipe)
-                    {
-                        Equipe = false;
-                    }
-                    else
-                    {
-                        Equipe = true;
-                    }
                     emplacement = value;
                     OnPropertyChanged();
                 }

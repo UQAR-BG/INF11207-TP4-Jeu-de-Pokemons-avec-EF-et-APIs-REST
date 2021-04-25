@@ -14,6 +14,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [JsonIgnore]
         private Pokemon pokemonEquipe;
 
+        public int DresseurId { get; set; }
+
         public GuidePourDebloquerPokemons Guide { get; set; }
 
         public DepotPokemons Depot { get; set; }
@@ -109,7 +111,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             Age = age;
             Money = money;
             Guide = new GuidePourDebloquerPokemons(level);
-            Depot = new DepotPokemons(level);
+
+            Depot = DepotPokemons.GetDepot(0);
+
             Invitations = new List<Invitation>();
             Statistiques = new Statistiques(money, 1);
         }
@@ -201,7 +205,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 ModifierArgent(-prix);
 
-                pokemonAchete = Pokemon.Acheter(pokemon.Name);
+                pokemonAchete = Pokemon.Acheter(Depot.DepotId, pokemon.Name);
                 Depot.PokemonsAchetes.Add(pokemonAchete);
 
                 Statistiques.PokemonsAchetes++;

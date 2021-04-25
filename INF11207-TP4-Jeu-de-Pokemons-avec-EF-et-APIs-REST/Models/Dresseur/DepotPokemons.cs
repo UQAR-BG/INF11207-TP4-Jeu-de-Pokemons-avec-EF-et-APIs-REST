@@ -3,17 +3,24 @@ using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class DepotPokemons : Binding
+    public partial class DepotPokemons : Binding
     {
         [JsonIgnore]
         private ObservableCollection<EmplacementPokemon> _emplacements;
         private ObservableCollection<int> _indexPokemonsEquipes;
 
+        public int DepotId { get; set; }
+        public int DresseurId { get; set; }
+
+        [NotMapped]
         public List<Pokemon> PokemonsAchetes { get; set; }
 
+        [NotMapped]
         public ObservableCollection<int> IndexPokemonsEquipes
         {
             get { return _indexPokemonsEquipes; }
@@ -25,8 +32,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                     OnPropertyChanged();
                 }
             }
-        } 
+        }
 
+        public string IndexPokemonsEquipesSerialises { get; set; }
+
+        [NotMapped]
         [JsonIgnore]
         public ObservableCollection<EmplacementPokemon> Emplacements
         {
@@ -49,9 +59,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public DepotPokemons(int niveauDresseur)
         {
-            PokemonsAchetes = new List<Pokemon>();
             Emplacements = new ObservableCollection<EmplacementPokemon>();
+            ChargerProprietesDepuisBd();
+        }
 
+        public void ChargerProprietesDepuisBd()
+        {
+            PokemonsAchetes = ChargerPokemonsAchetes(this);
             ChargerIndexPokemonsEquipes();
             RechargerEmplacements();
         }
@@ -77,6 +91,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 Pokemon pokemon = PokemonsAchetes[indexPokemon];
                 Emplacements[position].EquiperPokemon(pokemon);
                 SetPokemon(emplacement, Emplacements[position]);
+
+                UpdateDepot(DepotId, IndexPokemonsEquipes.ToList());
             }
         }
 
@@ -87,6 +103,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 Emplacements[position].DesequiperPokemon();
                 SetPokemon(emplacement, Emplacements[position]);
+
+                UpdateDepot(DepotId, IndexPokemonsEquipes.ToList());
             }
         }
 
@@ -104,6 +122,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
                 SetPokemon(emplacement1, Emplacements[position1]);
                 SetPokemon(emplacement2, Emplacements[position2]);
+
+                UpdateDepot(DepotId, IndexPokemonsEquipes.ToList());
             }
         }
 
@@ -140,17 +160,23 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public void ChargerDepotParDefaut()
         {
-            PokemonsAchetes = new List<Pokemon>();
-            PokemonsAchetes.Add(Pokemon.Acheter("Bulbasaur"));
+            PokemonsAchetes.Add(Pokemon.Acheter(DepotId, "Bulbasaur"));
             EquiperPokemon(0, 0);
         }
 
         private void ChargerIndexPokemonsEquipes()
         {
-            IndexPokemonsEquipes = new ObservableCollection<int>();
-            for (int i = 0; i < 3; i++)
+            if (DepotExiste(DepotId))
             {
-                IndexPokemonsEquipes.Add(-1);
+                IndexPokemonsEquipes = new ObservableCollection<int>(ChargerIndexPokemonsEquipes(this));
+            }
+            else
+            {
+                IndexPokemonsEquipes = new ObservableCollection<int>();
+                for (int i = 0; i < 3; i++)
+                {
+                    IndexPokemonsEquipes.Add(-1);
+                }
             }
         }
 
