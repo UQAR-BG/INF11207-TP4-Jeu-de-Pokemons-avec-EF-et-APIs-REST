@@ -1,4 +1,5 @@
-﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
+﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Enums;
+using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,8 +20,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
                 pokemonAchete.ChargerProprietesDepuisBd();
                 Jauge.CreerJauges(pokemonAchete);
-
-                pokemonAchete.Attacks = ChargerAttaques(pokemonAchete);
 
                 context.Pokemons.Add(pokemonAchete);
                 context.SaveChanges();
@@ -54,7 +53,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 return new Pokemon();
             }
 
-            pokemon.Attacks = ChargerAttaques(pokemon);
+            pokemon.ChargerProprietesDepuisBd();
             return pokemon;
         }
 
@@ -73,7 +72,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
             foreach (Pokemon pokemonDeBase in pokemonsDeBase)
             {
-                pokemonDeBase.Attacks = ChargerAttaques(pokemonDeBase);
+                pokemonDeBase.ChargerProprietesDepuisBd();
             }
             return pokemonsDeBase;
         }
@@ -89,6 +88,25 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 GenererIdsAttaquesSerialises(pokemon);
             }
             return pokemonsDeBase;
+        }
+
+        public static void UpdatePokemon(Pokemon pokemon)
+        {
+            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
+            Pokemon updatedPokemon = context.Pokemons.Find(pokemon.Id);
+
+            if (updatedPokemon != null)
+            {
+                context.Entry(updatedPokemon).CurrentValues.SetValues(pokemon);
+                context.SaveChanges();
+            }
+        }
+
+        private static List<OrigineType> ChargerTypes(Pokemon pokemon)
+        {
+            List<OrigineType> types = Loader.DeserialiserDepuisJson<List<OrigineType>>(pokemon.TypesSerialises);
+
+            return types;
         }
 
         private static List<Attaque> ChargerAttaques(Pokemon pokemon)

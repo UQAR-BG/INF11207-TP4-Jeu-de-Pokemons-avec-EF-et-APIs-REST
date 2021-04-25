@@ -1,59 +1,62 @@
 {
-  "Guide": {
-    "IdPokemonsDebloques": [
-      1
-    ]
-  },
+  "FirstName": "Bastien",
+  "Name": "Goulet",
+  "Age": 23,
+  "PrintMoney": "5000$",
   "Depot": {
     "PokemonsAchetes": [
       {
-        "Id": 1,
+        "Id": 154,
         "Types": [
           7,
           4
         ],
         "PrintTypes": "Poison, Grass",
+        "EvolutionId": 1,
         "Evolue": true,
-        "Evolution": {
-          "EvolutionId": 0,
-          "Level": 16,
-          "To": "Ivysaur"
-        },
         "Description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.  Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
         "ATK": 1,
         "DEF": 1,
         "Price": 100,
         "PrintPrice": "100$",
         "Health": 45,
-        "HpGaugeId": 0,
+        "HpGaugeId": 3,
         "Image": "/Resources/Images/1.png",
+        "AttacksIdsSerialises": "[\r\n  1,\r\n  2,\r\n  3,\r\n  4,\r\n  5\r\n]",
+        "AttacksIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
         "Attacks": [
           {
-            "AttaqueId": 0,
+            "AttaqueId": 1,
             "Type": 4,
             "Name": "Vine Whip",
             "Damage": 5.4
           },
           {
-            "AttaqueId": 0,
+            "AttaqueId": 2,
             "Type": 0,
             "Name": "Tackle",
             "Damage": 5.45
           },
           {
-            "AttaqueId": 0,
+            "AttaqueId": 3,
             "Type": 7,
             "Name": "Sludge Bomb",
             "Damage": 10.6
           },
           {
-            "AttaqueId": 0,
+            "AttaqueId": 4,
             "Type": 4,
             "Name": "Seed Bomb",
             "Damage": 8.35
           },
           {
-            "AttaqueId": 0,
+            "AttaqueId": 5,
             "Type": 4,
             "Name": "Power Whip",
             "Damage": 12.5
@@ -61,27 +64,27 @@
         ],
         "Achete": true,
         "Equipe": true,
-        "Emplacement": 0,
-        "IdPokemonAchete": "0f8fad5b-d9cb-469f-a165-70867728950e",
+        "Emplacement": 2,
         "Name": "Bulbasaur",
         "Level": 1,
-        "XpGaugeId": 3
+        "XpGaugeId": 6
       }
     ],
     "IndexPokemonsEquipes": [
-      0,
       -1,
-      -1
+      -1,
+      0
     ]
   },
-  "StatistiquesId": 2003,
-  "Invitations": [],
-  "FirstName": "Bastien",
-  "Age": 18,
-  "Money": 5200,
-  "PrintMoney": "5200$",
-  "IsValid": true,
-  "Name": "Goulet",
   "Level": 1,
-  "XpGaugeId": 2
+  "Guide": {
+    "IdPokemonsDebloques": [
+      1
+    ]
+  },
+  "StatistiquesId": 2,
+  "Invitations": [],
+  "Money": 5000,
+  "IsValid": true,
+  "XpGaugeId": 5
 }

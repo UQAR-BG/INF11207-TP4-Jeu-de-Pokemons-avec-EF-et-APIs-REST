@@ -1,11 +1,8 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Enums;
-using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
@@ -173,6 +170,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             {
                 indexPokemon = ChercherIndexDePokemonAchete(pokemon.Pokemon.Id);
                 tempPokemonEquipe.Pokemon.Emplacement = emplacement;
+
+                Pokemon.UpdatePokemon(tempPokemonEquipe.Pokemon);
             }
 
             IndexPokemonsEquipes[position] = indexPokemon;

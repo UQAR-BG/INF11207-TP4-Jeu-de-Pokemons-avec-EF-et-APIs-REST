@@ -245,7 +245,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
             HpGauge = JaugeVie.GetHpGauge(HpGaugeId);
 
+            Types = ChargerTypes(this);
             Evolution = Evolution.GetEvolution(EvolutionId);
+            Attacks = ChargerAttaques(this);
         }
 
         public object Clone()
