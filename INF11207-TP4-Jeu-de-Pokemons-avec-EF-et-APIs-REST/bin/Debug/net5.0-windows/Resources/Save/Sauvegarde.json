@@ -6,11 +6,12 @@
   "Depot": {
     "PokemonsAchetes": [
       {
-        "Id": 154,
+        "Id": 155,
         "Types": [
           7,
           4
         ],
+        "TypesSerialises": "[\r\n  7,\r\n  4\r\n]",
         "PrintTypes": "Poison, Grass",
         "EvolutionId": 1,
         "Evolue": true,
@@ -20,7 +21,7 @@
         "Price": 100,
         "PrintPrice": "100$",
         "Health": 45,
-        "HpGaugeId": 3,
+        "HpGaugeId": 4,
         "Image": "/Resources/Images/1.png",
         "AttacksIdsSerialises": "[\r\n  1,\r\n  2,\r\n  3,\r\n  4,\r\n  5\r\n]",
         "AttacksIds": [
@@ -63,17 +64,17 @@
           }
         ],
         "Achete": true,
-        "Equipe": true,
-        "Emplacement": 2,
+        "Equipe": false,
+        "Emplacement": 0,
         "Name": "Bulbasaur",
         "Level": 1,
-        "XpGaugeId": 6
+        "XpGaugeId": 8
       }
     ],
     "IndexPokemonsEquipes": [
+      0,
       -1,
-      -1,
-      0
+      -1
     ]
   },
   "Level": 1,
@@ -82,9 +83,9 @@
       1
     ]
   },
-  "StatistiquesId": 2,
+  "StatistiquesId": 3,
   "Invitations": [],
   "Money": 5000,
   "IsValid": true,
-  "XpGaugeId": 5
+  "XpGaugeId": 7
 }

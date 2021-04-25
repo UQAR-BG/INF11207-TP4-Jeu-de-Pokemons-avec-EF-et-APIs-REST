@@ -171,7 +171,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 indexPokemon = ChercherIndexDePokemonAchete(pokemon.Pokemon.Id);
                 tempPokemonEquipe.Pokemon.Emplacement = emplacement;
 
-                Pokemon.UpdatePokemon(tempPokemonEquipe.Pokemon);
+                Pokemon.UpdatePokemon(tempPokemonEquipe.Pokemon.Id, tempPokemonEquipe.Pokemon.Level, tempPokemonEquipe.Pokemon.Emplacement);
             }
 
             IndexPokemonsEquipes[position] = indexPokemon;

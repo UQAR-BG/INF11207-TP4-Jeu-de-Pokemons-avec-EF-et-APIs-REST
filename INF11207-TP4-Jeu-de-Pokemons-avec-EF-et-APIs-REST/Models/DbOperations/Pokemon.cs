@@ -90,14 +90,15 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             return pokemonsDeBase;
         }
 
-        public static void UpdatePokemon(Pokemon pokemon)
+        public static void UpdatePokemon(int pokemonId, int level, Emplacement emplacement)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
-            Pokemon updatedPokemon = context.Pokemons.Find(pokemon.Id);
+            Pokemon updatedPokemon = context.Pokemons.Find(pokemonId);
 
             if (updatedPokemon != null)
             {
-                context.Entry(updatedPokemon).CurrentValues.SetValues(pokemon);
+                updatedPokemon.Level = level;
+                updatedPokemon.Emplacement = emplacement;
                 context.SaveChanges();
             }
         }

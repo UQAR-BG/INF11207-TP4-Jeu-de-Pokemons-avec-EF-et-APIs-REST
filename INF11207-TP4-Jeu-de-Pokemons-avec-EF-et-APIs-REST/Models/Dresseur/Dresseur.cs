@@ -173,7 +173,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                         emplacement.Pokemon = evolution;
                         Depot.Evolution(indexPokemon, evolution);
                     }
-                    Pokemon.UpdatePokemon(emplacement.Pokemon);
+                    Pokemon.UpdatePokemon(emplacement.Pokemon.Id, emplacement.Pokemon.Level, emplacement.Pokemon.Emplacement);
                 }
             }
         }

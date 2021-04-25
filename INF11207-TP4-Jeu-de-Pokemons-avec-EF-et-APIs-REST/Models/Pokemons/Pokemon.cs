@@ -29,7 +29,6 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [NotMapped]
         public List<OrigineType> Types { get; set; }
 
-        [JsonIgnore]
         public string TypesSerialises { get; set; }
 
         [NotMapped]
