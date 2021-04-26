@@ -26,14 +26,25 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             return dresseur;
         }
 
-        public static Dresseur GetDresseur(int dresseurId)
+        public static bool DresseurExiste(int dresseurId)
         {
             JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
             Dresseur dresseur = context.Dresseurs.Find(dresseurId);
 
-            if (dresseurId <= 0 || dresseur == null)
+            return dresseur != null;
+        }
+
+        public static Dresseur GetDresseur(int dresseurId)
+        {
+            Dresseur dresseur;
+            using (JeuDePokemonsDbContext context = new JeuDePokemonsDbContext())
             {
-                dresseur = new Dresseur(1);
+                dresseur = context.Dresseurs.Find(dresseurId);
+
+                if (dresseurId <= 0 || dresseur == null)
+                {
+                    dresseur = new Dresseur(1);
+                }
             }
 
             dresseur.ChargerProprietesDepuisBd();
@@ -55,14 +66,16 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public static void UpdateDresseur(int dresseurId, int money, int level)
         {
-            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
-            Dresseur dresseur = context.Dresseurs.Find(dresseurId);
-
-            if (dresseur != null)
+            using (JeuDePokemonsDbContext context = new JeuDePokemonsDbContext())
             {
-                dresseur.Money = money;
-                dresseur.Level = level;
-                context.SaveChanges();
+                Dresseur dresseur = context.Dresseurs.Find(dresseurId);
+
+                if (dresseur != null)
+                {
+                    dresseur.Money = money;
+                    dresseur.Level = level;
+                    context.SaveChanges();
+                }
             }
         }
     }

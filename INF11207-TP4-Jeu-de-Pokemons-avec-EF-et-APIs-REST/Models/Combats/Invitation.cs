@@ -2,10 +2,11 @@
 using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels;
 using Newtonsoft.Json;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class Invitation : Binding
+    public partial class Invitation : Binding
     {
         [JsonIgnore]
         private bool isValid;
@@ -19,6 +20,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         private DateTime dateCreation;
         private Dresseur createur;
+
+        public int InvitationId { get; set; }
 
         public StatutType Statut
         {
@@ -111,6 +114,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        public int CreateurId { get; set; }
+
+        [NotMapped]
         public Dresseur Createur
         {
             get { return createur; }
@@ -124,6 +130,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        [NotMapped]
         [JsonIgnore]
         public bool IsValid
         {

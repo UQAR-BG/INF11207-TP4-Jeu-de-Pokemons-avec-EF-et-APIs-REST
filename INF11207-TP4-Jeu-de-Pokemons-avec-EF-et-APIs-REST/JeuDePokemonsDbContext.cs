@@ -17,6 +17,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<Pokemon> Pokemons { get; set; }
         public DbSet<DepotPokemons> Depots { get; set; }
         public DbSet<Dresseur> Dresseurs { get; set; }
+        public DbSet<Invitation> Invitations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -153,6 +154,20 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(d => d.StatistiquesId);
                 e.Property(d => d.DepotId);
                 e.HasData(adversaire);
+            });
+
+            modelBuilder.Entity<Invitation>(e =>
+            {
+                e.HasKey(i => i.InvitationId);
+                e.Property(i => i.CreateurId).IsRequired();
+                e.Property(i => i.Statut).IsRequired();
+                e.Property(i => i.Niveau);
+                e.Property(i => i.CreateurId).IsRequired();
+                e.Property(i => i.NomAdversaire);
+                e.Property(i => i.NomCreateur).IsRequired();
+                e.Property(i => i.MiseCreateur).IsRequired();
+                e.Property(i => i.MiseAdversaire);
+                e.Property(i => i.DateCreation).IsRequired();
             });
         }
     }
