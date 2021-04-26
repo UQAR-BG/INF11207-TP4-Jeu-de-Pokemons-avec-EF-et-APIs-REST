@@ -62,11 +62,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         public void RechercherInvitations()
         {
-            Invitation = new Invitation(Dresseur);
-            Invitation.MiseCreateur = 100;
+            Invitation = new Invitation(Dresseur, 100);
 
-            List<Invitation> invitations = ChargerInvitations();
-            invitations.AddRange(Dresseur.Invitations.FindAll(i => i.Statut == StatutType.Attente));
+            List<Invitation> invitations = Invitation.GetInvitationsEnAttente();
 
             Resultats = new ObservableCollection<Invitation>(invitations);
             InvitationSelectionne = Resultats[0];
@@ -74,7 +72,8 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         private void CreerInvitation()
         {
-            Invitation.Statut = StatutType.Accepte;
+            Invitation.AddInvitation(Invitation);
+            Invitation.InvitationId = Invitation.GetLatestId();
             Dresseur.Invitations.Add(Invitation);
 
             MessageBox.Show($" Le dresseur {Resultats[0].NomCreateur} a accepté votre invitation.\nLancement du combat en cours...", 
@@ -85,24 +84,18 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         private void LancerUnCombat()
         {
-            Dresseur.ModifierArgent(-Invitation.MiseCreateur);
+            int invitationId = Invitation.InvitationId == 0 ? InvitationSelectionne.InvitationId : Invitation.InvitationId;
+            Combat nouveauCombat = Invitation.Accepter(invitationId, Dresseur, Invitation.MiseCreateur);
 
-            int mise = Invitation.MiseCreateur + InvitationSelectionne.MiseCreateur;
-            Dresseur adversaire = Dresseur.GetDresseur(1);
-            Game.Combat = new Combat(Dresseur, adversaire, mise);
-
-            Game.Naviguer("combats");
-        }
-
-        private List<Invitation> ChargerInvitations()
-        {
-            List<Invitation> invitations = new List<Invitation>();
-            if (!Loader.Charger(out invitations, "Resources/Data/InvitationsParDefaut.json"))
+            if (nouveauCombat.Mise > 0)
             {
-                MessageBox.Show("Le fichier InvitationsParDefaut.json est manquant. Le jeu pourra donc rencontrer des comportements étranges.",
-                    "Données manquantes", MessageBoxButton.OK);
+                Game.Combat = nouveauCombat;
+                Game.Naviguer("combats");
             }
-            return invitations;
+            else
+            {
+                MessageBox.Show("Une erreur s'est produite lors du lancement du combat.", "Erreur", MessageBoxButton.OK);
+            }
         }
     }
 }

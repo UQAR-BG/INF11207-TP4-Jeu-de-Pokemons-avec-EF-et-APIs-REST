@@ -148,12 +148,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [JsonConstructor]
         public Invitation() { }
 
-        public Invitation(Dresseur createur)
+        public Invitation(Dresseur createur, int miseCreateur)
         {
             statut = StatutType.Attente;
 
             this.createur = createur;
+            CreateurId = createur.DresseurId;
             NomCreateur = $"{createur.FirstName} {createur.Name}";
+            MiseCreateur = miseCreateur;
             Niveau = createur.Level;
             DateCreation = DateTime.Now;
         }

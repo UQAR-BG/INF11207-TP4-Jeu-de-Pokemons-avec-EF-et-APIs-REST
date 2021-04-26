@@ -80,7 +80,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 int miseTotale = mise + invitation.MiseCreateur;
 
                 Dresseur createur = Dresseur.GetDresseur(invitation.CreateurId);
-                return new Combat(adversaire, createur, miseTotale);
+                if (invitation.CreateurId == 1)
+                {
+                    return new Combat(adversaire, createur, miseTotale);
+                }
+                else
+                {
+                    return new Combat(createur, Dresseur.GetDresseur(1), miseTotale);
+                }
             }
             else
             {
@@ -96,7 +103,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
                 if (invitation != null)
                 {
-                    invitation.Statut = statut;
+                    invitation.Statut = invitationId == 1 ? StatutType.Attente : statut;
                     invitation.MiseAdversaire = miseAdversaire;
                     invitation.NomAdversaire = nomAdversaire;
                     context.SaveChanges();

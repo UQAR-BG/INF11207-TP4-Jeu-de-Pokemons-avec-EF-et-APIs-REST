@@ -156,6 +156,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.HasData(adversaire);
             });
 
+            Invitation invitation = new Invitation(adversaire, 100)
+            {
+                InvitationId = 1,
+            };
+
             modelBuilder.Entity<Invitation>(e =>
             {
                 e.HasKey(i => i.InvitationId);
@@ -168,6 +173,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(i => i.MiseCreateur).IsRequired();
                 e.Property(i => i.MiseAdversaire);
                 e.Property(i => i.DateCreation).IsRequired();
+                e.HasData(invitation);
             });
         }
     }
