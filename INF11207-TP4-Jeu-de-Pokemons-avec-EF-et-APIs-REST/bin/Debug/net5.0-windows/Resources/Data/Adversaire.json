@@ -1,0 +1,58 @@
+{
+	"DresseurId": 1,
+	"DepotId": 1,
+	"Depot": {
+		"DepotId": 1,
+		"DresseurId": 1,
+		  "PokemonsAchetes": [
+			{
+			  "Id": 152,
+				"DepotId": 1,
+			  "Types": [
+				7,
+				4
+			  ],
+			  "TypesSerialises": "[\r\n  7,\r\n  4\r\n]",
+			  "PrintTypes": "Poison, Grass",
+			  "Evolue": true,
+			  "EvolutionId": 1,
+			  "Description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.  Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+			  "ATK": 1,
+			  "DEF": 1,
+			  "Price": 100,
+			  "PrintPrice": "100$",
+			  "Health": 45,
+			  "HpGaugeId": 1,
+			  "Image": "/Resources/Images/1.png",
+			  "AttacksIdsSerialises": "[\r\n  1,\r\n  2,\r\n  3,\r\n  4,\r\n  5\r\n]",
+			  "AttacksIds": [
+				1,
+				2,
+				3,
+				4,
+				5
+			],
+			  "Achete": true,
+			  "Equipe": true,
+			  "Emplacement": 0,
+			  "Name": "Bulbasaur",
+			  "Level": 1,
+			  "XpGaugeId": 1
+			}
+			],
+		  "IndexPokemonsEquipes": [
+			0,
+			-1,
+			-1
+		  ],
+		  "IndexPokemonsEquipesSerialises": "[\r\n  0,\r\n  -1,\r\n  -1\r\n]"
+	},
+	"FirstName": "John",
+	"Age": 35,
+	"Money": 5000,
+	"Name": "Doe",
+	"Level": 5,
+	"StatistiquesId": 1,
+	"Invitations": [],
+	"XpGaugeId": 2
+  }

@@ -8,13 +8,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         [JsonIgnore]
         public Dictionary<int, List<int>> CorrespondanceNiveauPokemon { get; set; }
 
+        [JsonIgnore]
         public List<int> IdPokemonsDebloques { get; set; }
 
         [JsonConstructor]
-        public GuidePourDebloquerPokemons()
-        {
-            CorrespondanceNiveauPokemon = Correspondance.ShowCorrespondances();
-        }
+        public GuidePourDebloquerPokemons() { }
 
         public GuidePourDebloquerPokemons(int niveauDresseur)
         {

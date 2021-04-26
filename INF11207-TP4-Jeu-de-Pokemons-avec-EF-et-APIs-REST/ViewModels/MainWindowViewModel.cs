@@ -39,6 +39,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         public MainWindowViewModel()
         {
+            Dresseur adversaire;
+            Loader.Charger(out adversaire, "Resources/Data/Adversaire.json");
+
             Game.Initialiser();
             InitializeViewModels();
 

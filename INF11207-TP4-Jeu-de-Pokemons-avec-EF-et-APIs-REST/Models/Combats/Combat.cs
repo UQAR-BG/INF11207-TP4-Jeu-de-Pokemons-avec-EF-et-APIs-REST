@@ -162,11 +162,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         {
             if (joueur.EncorePokemonsValides())
             {
-                AttribuerResultats(gagnant);
+                AttribuerResultats(adversaire, perdant);
+                AttribuerResultats(joueur, gagnant);
             }
             else
             {
-                AttribuerResultats(perdant);
+                AttribuerResultats(adversaire, gagnant);
+                AttribuerResultats(joueur, perdant);
             }
         }
 
@@ -180,9 +182,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             joueurActuel = participants[indexParticipant];
         }
 
-        private void AttribuerResultats(ResultatCombat resultats)
+        private void AttribuerResultats(Dresseur participant, ResultatCombat resultats)
         {
-            joueur.TerminerUnCombat(resultats);
+            participant.TerminerUnCombat(resultats);
         }
     }
 }

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
 {
     [DbContext(typeof(JeuDePokemonsDbContext))]
-    [Migration("20210425190430_Creation-table-Depots")]
-    partial class CreationtableDepots
+    [Migration("20210426024157_Ajout-Adversaire-dans-BD")]
+    partial class AjoutAdversairedansBD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -909,6 +909,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Damage = 5.2000000000000002,
                             Name = "Brine",
                             Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 125,
+                            Damage = 12.800000000000001,
+                            Name = "Blizzard",
+                            Type = 5
                         });
                 });
 
@@ -951,6 +958,66 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     b.HasKey("DepotId");
 
                     b.ToTable("Depots");
+
+                    b.HasData(
+                        new
+                        {
+                            DepotId = 1,
+                            DresseurId = 1,
+                            IndexPokemonsEquipesSerialises = "[\r\n  0,\r\n  -1,\r\n  -1\r\n]"
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Dresseur", b =>
+                {
+                    b.Property<int>("DresseurId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepotId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Money")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StatistiquesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("XpGaugeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DresseurId");
+
+                    b.ToTable("Dresseurs");
+
+                    b.HasData(
+                        new
+                        {
+                            DresseurId = 1,
+                            Age = 35,
+                            DepotId = 1,
+                            FirstName = "John",
+                            Level = 5,
+                            Money = 5000,
+                            Name = "Doe",
+                            StatistiquesId = 1,
+                            XpGaugeId = 2
+                        });
                 });
 
             modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.EfficaciteAttaque", b =>
@@ -2894,6 +2961,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     b.HasKey("GaugeId");
 
                     b.ToTable("HealthGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 50,
+                            Value = 50
+                        });
                 });
 
             modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeXp", b =>
@@ -2912,6 +2987,20 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     b.HasKey("GaugeId");
 
                     b.ToTable("XpGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 100,
+                            Value = 0
+                        },
+                        new
+                        {
+                            GaugeId = 2,
+                            MaxValue = 100,
+                            Value = 0
+                        });
                 });
 
             modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Pokemon", b =>
@@ -6152,6 +6241,27 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Price = 100,
                             TypesSerialises = "[\r\n  11\r\n]",
                             XpGaugeId = 0
+                        },
+                        new
+                        {
+                            Id = 152,
+                            ATK = 1,
+                            Achete = true,
+                            AttacksIdsSerialises = "[\r\n  1,\r\n  2,\r\n  3,\r\n  4,\r\n  5\r\n]",
+                            DEF = 1,
+                            DepotId = 1,
+                            Description = "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.  Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+                            Emplacement = 0,
+                            Equipe = false,
+                            EvolutionId = 1,
+                            Health = 45,
+                            HpGaugeId = 1,
+                            Image = "/Resources/Images/1.png",
+                            Level = 1,
+                            Name = "Bulbasaur",
+                            Price = 100,
+                            TypesSerialises = "[\r\n  7,\r\n  4\r\n]",
+                            XpGaugeId = 1
                         });
                 });
 
@@ -6186,6 +6296,19 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     b.HasKey("StatistiquesId");
 
                     b.ToTable("Statistiques");
+
+                    b.HasData(
+                        new
+                        {
+                            StatistiquesId = 1,
+                            CombatsGagnes = 0,
+                            CombatsPerdus = 0,
+                            CombatsTotal = 0,
+                            MontantAccumule = 5000,
+                            MontantDepense = 0,
+                            PokemonsAchetes = 1,
+                            PokemonsDebloques = 1
+                        });
                 });
 #pragma warning restore 612, 618
         }

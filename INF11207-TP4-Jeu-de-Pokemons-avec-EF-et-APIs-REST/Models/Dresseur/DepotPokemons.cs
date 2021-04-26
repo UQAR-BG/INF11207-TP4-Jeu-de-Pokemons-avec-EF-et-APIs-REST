@@ -18,9 +18,11 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public int DresseurId { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public List<Pokemon> PokemonsAchetes { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public ObservableCollection<int> IndexPokemonsEquipes
         {
             get { return _indexPokemonsEquipes; }

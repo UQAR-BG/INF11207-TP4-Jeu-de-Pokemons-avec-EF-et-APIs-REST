@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
 {
     [DbContext(typeof(JeuDePokemonsDbContext))]
-    [Migration("20210422210439_Creation-table-Evolutions")]
-    partial class CreationtableEvolutions
+    [Migration("20210426022258_Ajout-attaque-en-plus")]
+    partial class Ajoutattaqueenplus
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -909,6 +909,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Damage = 5.2000000000000002,
                             Name = "Brine",
                             Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 125,
+                            Damage = 12.800000000000001,
+                            Name = "Blizzard",
+                            Type = 5
                         });
                 });
 
@@ -2858,6 +2865,75 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Level = 55,
                             To = "Dragonite"
                         });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeVie", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("HealthGauges");
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeXp", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("XpGauges");
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Statistiques", b =>
+                {
+                    b.Property<int>("StatistiquesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CombatsGagnes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CombatsPerdus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CombatsTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MontantAccumule")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MontantDepense")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonsAchetes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonsDebloques")
+                        .HasColumnType("int");
+
+                    b.HasKey("StatistiquesId");
+
+                    b.ToTable("Statistiques");
                 });
 #pragma warning restore 612, 618
         }

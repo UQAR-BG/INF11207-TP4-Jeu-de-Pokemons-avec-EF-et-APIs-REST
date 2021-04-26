@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
 {
     [DbContext(typeof(JeuDePokemonsDbContext))]
-    [Migration("20210422202758_Creation-table-Attaques")]
-    partial class CreationtableAttaques
+    [Migration("20210426023516_Creation-tables-Pokemons-Depots-Dresseur")]
+    partial class CreationtablesPokemonsDepotsDresseur
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -909,6 +909,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Damage = 5.2000000000000002,
                             Name = "Brine",
                             Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 125,
+                            Damage = 12.800000000000001,
+                            Name = "Blizzard",
+                            Type = 5
                         });
                 });
 
@@ -933,6 +940,62 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             CorrespondanceId = 1,
                             CorrespondancesSerialisee = "{\r\n  \"1\": [\r\n    1\r\n  ],\r\n  \"2\": [\r\n    2,3,4,5\r\n  ],\r\n  \"3\": [\r\n    6,7,8\r\n  ],\r\n  \"4\": [\r\n    9,10\r\n  ],\r\n  \"5\": [\r\n    11,12\r\n  ],\r\n  \"6\": [\r\n    13,14,15\r\n  ],\r\n  \"7\": [\r\n    16\r\n  ],\r\n  \"9\": [\r\n    17,18,19,20\r\n  ],\r\n  \"10\": [\r\n    21,22,23,24,25\r\n  ],\r\n  \"11\": [\r\n    26,27,28\r\n  ],\r\n  \"12\": [\r\n    29,30,31,32,33,34,35\r\n  ],\r\n  \"13\": [\r\n    36,37,38\r\n  ],\r\n  \"14\": [\r\n    39,40\r\n  ],\r\n  \"15\": [\r\n    41,42,43,44,45\r\n  ],\r\n  \"16\": [\r\n    46,47,48,49,50\r\n  ],\r\n  \"17\": [\r\n    51,52,53,54,55,56,57,58,59,60\r\n  ],\r\n  \"18\": [\r\n    61,62,63,64,65\r\n  ],\r\n  \"19\": [\r\n    66,67,68,69,70\r\n  ],\r\n  \"20\": [\r\n    71,72,73,74,75,76\r\n  ],\r\n  \"22\": [\r\n    77,78,79,80\r\n  ],\r\n  \"23\": [\r\n    81,82,83,84\r\n  ],\r\n  \"24\": [\r\n    85,86,87\r\n  ],\r\n  \"25\": [\r\n    88,89,90,91,92\r\n  ],\r\n  \"26\": [\r\n    93,94,95\r\n  ],\r\n  \"27\": [\r\n    96,97,98,99,100\r\n  ],\r\n  \"28\": [\r\n    101,102,103,104,105\r\n  ],\r\n  \"29\": [\r\n    106,107,108,109,110,111,112\r\n  ],\r\n  \"30\": [\r\n    113,114,115\r\n  ],\r\n  \"31\": [\r\n    116,117,118,119,120\r\n  ],\r\n  \"32\": [\r\n    121,122\r\n  ],\r\n  \"33\": [\r\n    123,124,125\r\n  ],\r\n  \"34\": [\r\n    126,127,128,129,130,131,132\r\n  ],\r\n  \"35\": [\r\n    133,134,135,136\r\n  ],\r\n  \"36\": [\r\n    137,138\r\n  ],\r\n  \"37\": [\r\n    139,140,141,142\r\n  ],\r\n  \"38\": [\r\n    143,144,145\r\n  ],\r\n  \"39\": [\r\n    146,147,148\r\n  ],\r\n  \"40\": [\r\n    149,150,151\r\n  ]\r\n}"
                         });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.DepotPokemons", b =>
+                {
+                    b.Property<int>("DepotId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DresseurId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IndexPokemonsEquipesSerialises")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DepotId");
+
+                    b.ToTable("Depots");
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Dresseur", b =>
+                {
+                    b.Property<int>("DresseurId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepotId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Money")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StatistiquesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("XpGaugeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DresseurId");
+
+                    b.ToTable("Dresseurs");
                 });
 
             modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.EfficaciteAttaque", b =>
@@ -2530,6 +2593,505 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Attack = 16,
                             Defend = 16,
                             Effectiveness = 2.0
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Evolution", b =>
+                {
+                    b.Property<int>("EvolutionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("To")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EvolutionId");
+
+                    b.ToTable("Evolutions");
+
+                    b.HasData(
+                        new
+                        {
+                            EvolutionId = 1,
+                            Level = 16,
+                            To = "Ivysaur"
+                        },
+                        new
+                        {
+                            EvolutionId = 2,
+                            Level = 32,
+                            To = "Venusaur"
+                        },
+                        new
+                        {
+                            EvolutionId = 3,
+                            Level = 16,
+                            To = "Charmeleon"
+                        },
+                        new
+                        {
+                            EvolutionId = 4,
+                            Level = 36,
+                            To = "Charizard"
+                        },
+                        new
+                        {
+                            EvolutionId = 5,
+                            Level = 16,
+                            To = "Wartortle"
+                        },
+                        new
+                        {
+                            EvolutionId = 6,
+                            Level = 36,
+                            To = "Blastoise"
+                        },
+                        new
+                        {
+                            EvolutionId = 7,
+                            Level = 7,
+                            To = "Metapod"
+                        },
+                        new
+                        {
+                            EvolutionId = 8,
+                            Level = 10,
+                            To = "Butterfree"
+                        },
+                        new
+                        {
+                            EvolutionId = 9,
+                            Level = 7,
+                            To = "Kakuna"
+                        },
+                        new
+                        {
+                            EvolutionId = 10,
+                            Level = 10,
+                            To = "Beedrill"
+                        },
+                        new
+                        {
+                            EvolutionId = 11,
+                            Level = 18,
+                            To = "Pidgeotto"
+                        },
+                        new
+                        {
+                            EvolutionId = 12,
+                            Level = 36,
+                            To = "Pidgeot"
+                        },
+                        new
+                        {
+                            EvolutionId = 13,
+                            Level = 20,
+                            To = "Raticate"
+                        },
+                        new
+                        {
+                            EvolutionId = 14,
+                            Level = 20,
+                            To = "Fearow"
+                        },
+                        new
+                        {
+                            EvolutionId = 15,
+                            Level = 22,
+                            To = "Arbok"
+                        },
+                        new
+                        {
+                            EvolutionId = 16,
+                            Level = 22,
+                            To = "Sandslash"
+                        },
+                        new
+                        {
+                            EvolutionId = 17,
+                            Level = 16,
+                            To = "Nidorina"
+                        },
+                        new
+                        {
+                            EvolutionId = 18,
+                            Level = 16,
+                            To = "Nidorino"
+                        },
+                        new
+                        {
+                            EvolutionId = 19,
+                            Level = 22,
+                            To = "Golbat"
+                        },
+                        new
+                        {
+                            EvolutionId = 20,
+                            Level = 21,
+                            To = "Gloom"
+                        },
+                        new
+                        {
+                            EvolutionId = 21,
+                            Level = 24,
+                            To = "Parasect"
+                        },
+                        new
+                        {
+                            EvolutionId = 22,
+                            Level = 31,
+                            To = "Venomoth"
+                        },
+                        new
+                        {
+                            EvolutionId = 23,
+                            Level = 26,
+                            To = "Dugtrio"
+                        },
+                        new
+                        {
+                            EvolutionId = 24,
+                            Level = 28,
+                            To = "Persian"
+                        },
+                        new
+                        {
+                            EvolutionId = 25,
+                            Level = 33,
+                            To = "Golduck"
+                        },
+                        new
+                        {
+                            EvolutionId = 26,
+                            Level = 28,
+                            To = "Primeape"
+                        },
+                        new
+                        {
+                            EvolutionId = 27,
+                            Level = 25,
+                            To = "Poliwhirl"
+                        },
+                        new
+                        {
+                            EvolutionId = 28,
+                            Level = 16,
+                            To = "Kadabra"
+                        },
+                        new
+                        {
+                            EvolutionId = 29,
+                            Level = 28,
+                            To = "Machoke"
+                        },
+                        new
+                        {
+                            EvolutionId = 30,
+                            Level = 21,
+                            To = "Weepinbell"
+                        },
+                        new
+                        {
+                            EvolutionId = 31,
+                            Level = 30,
+                            To = "Tentacruel"
+                        },
+                        new
+                        {
+                            EvolutionId = 32,
+                            Level = 25,
+                            To = "Graveler"
+                        },
+                        new
+                        {
+                            EvolutionId = 33,
+                            Level = 40,
+                            To = "Rapidash"
+                        },
+                        new
+                        {
+                            EvolutionId = 34,
+                            Level = 30,
+                            To = "Magneton"
+                        },
+                        new
+                        {
+                            EvolutionId = 35,
+                            Level = 31,
+                            To = "Dodrio"
+                        },
+                        new
+                        {
+                            EvolutionId = 36,
+                            Level = 34,
+                            To = "Dewgong"
+                        },
+                        new
+                        {
+                            EvolutionId = 37,
+                            Level = 38,
+                            To = "Muk"
+                        },
+                        new
+                        {
+                            EvolutionId = 38,
+                            Level = 25,
+                            To = "Haunter"
+                        },
+                        new
+                        {
+                            EvolutionId = 39,
+                            Level = 26,
+                            To = "Hypno"
+                        },
+                        new
+                        {
+                            EvolutionId = 40,
+                            Level = 28,
+                            To = "Kingler"
+                        },
+                        new
+                        {
+                            EvolutionId = 41,
+                            Level = 30,
+                            To = "Electrode"
+                        },
+                        new
+                        {
+                            EvolutionId = 42,
+                            Level = 28,
+                            To = "Marowak"
+                        },
+                        new
+                        {
+                            EvolutionId = 43,
+                            Level = 35,
+                            To = "Weezing"
+                        },
+                        new
+                        {
+                            EvolutionId = 44,
+                            Level = 42,
+                            To = "Rhydon"
+                        },
+                        new
+                        {
+                            EvolutionId = 45,
+                            Level = 32,
+                            To = "Seadra"
+                        },
+                        new
+                        {
+                            EvolutionId = 46,
+                            Level = 33,
+                            To = "Seaking"
+                        },
+                        new
+                        {
+                            EvolutionId = 47,
+                            Level = 20,
+                            To = "Gyarados"
+                        },
+                        new
+                        {
+                            EvolutionId = 48,
+                            Level = 40,
+                            To = "Omastar"
+                        },
+                        new
+                        {
+                            EvolutionId = 49,
+                            Level = 40,
+                            To = "Kabutops"
+                        },
+                        new
+                        {
+                            EvolutionId = 50,
+                            Level = 30,
+                            To = "Dragonair"
+                        },
+                        new
+                        {
+                            EvolutionId = 51,
+                            Level = 55,
+                            To = "Dragonite"
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeVie", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("HealthGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 50,
+                            Value = 50
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeXp", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("XpGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 100,
+                            Value = 0
+                        },
+                        new
+                        {
+                            GaugeId = 2,
+                            MaxValue = 100,
+                            Value = 0
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Pokemon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ATK")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Achete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("AttacksIdsSerialises")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DEF")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepotId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Emplacement")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Equipe")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("EvolutionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Health")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HpGaugeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TypesSerialises")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("XpGaugeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pokemons");
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Statistiques", b =>
+                {
+                    b.Property<int>("StatistiquesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CombatsGagnes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CombatsPerdus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CombatsTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MontantAccumule")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MontantDepense")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonsAchetes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonsDebloques")
+                        .HasColumnType("int");
+
+                    b.HasKey("StatistiquesId");
+
+                    b.ToTable("Statistiques");
+
+                    b.HasData(
+                        new
+                        {
+                            StatistiquesId = 1,
+                            CombatsGagnes = 0,
+                            CombatsPerdus = 0,
+                            CombatsTotal = 0,
+                            MontantAccumule = 5000,
+                            MontantDepense = 0,
+                            PokemonsAchetes = 1,
+                            PokemonsDebloques = 1
                         });
                 });
 #pragma warning restore 612, 618

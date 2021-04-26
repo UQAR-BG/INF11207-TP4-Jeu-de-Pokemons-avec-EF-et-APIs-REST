@@ -240,7 +240,10 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         }
 
         [JsonConstructor]
-        public Pokemon() : base("", 1, 100) { }
+        public Pokemon() : base("", 1, 100) 
+        {
+            Types = new List<OrigineType>();
+        }
 
         public void ChargerProprietesDepuisBd()
         {

@@ -1,96 +1,16 @@
 {
-  "DresseurId": 1,
-  "Guide": {
-    "IdPokemonsDebloques": [
-      1
-    ]
-  },
+  "DresseurId": 2,
   "Depot": {
-    "DepotId": 4,
-    "DresseurId": 1,
-    "PokemonsAchetes": [
-      {
-        "Id": 159,
-        "DepotId": 4,
-        "Types": [
-          7,
-          4
-        ],
-        "TypesSerialises": "[\r\n  7,\r\n  4\r\n]",
-        "PrintTypes": "Poison, Grass",
-        "EvolutionId": 1,
-        "Evolue": true,
-        "Description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.  Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
-        "ATK": 1,
-        "DEF": 1,
-        "Price": 100,
-        "PrintPrice": "100$",
-        "Health": 45,
-        "HpGaugeId": 8,
-        "Image": "/Resources/Images/1.png",
-        "AttacksIdsSerialises": "[\r\n  1,\r\n  2,\r\n  3,\r\n  4,\r\n  5\r\n]",
-        "AttacksIds": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "Attacks": [
-          {
-            "AttaqueId": 1,
-            "Type": 4,
-            "Name": "Vine Whip",
-            "Damage": 5.4
-          },
-          {
-            "AttaqueId": 2,
-            "Type": 0,
-            "Name": "Tackle",
-            "Damage": 5.45
-          },
-          {
-            "AttaqueId": 3,
-            "Type": 7,
-            "Name": "Sludge Bomb",
-            "Damage": 10.6
-          },
-          {
-            "AttaqueId": 4,
-            "Type": 4,
-            "Name": "Seed Bomb",
-            "Damage": 8.35
-          },
-          {
-            "AttaqueId": 5,
-            "Type": 4,
-            "Name": "Power Whip",
-            "Damage": 12.5
-          }
-        ],
-        "Achete": true,
-        "Equipe": true,
-        "Emplacement": 2,
-        "Name": "Bulbasaur",
-        "Level": 1,
-        "XpGaugeId": 17
-      }
-    ],
-    "IndexPokemonsEquipes": [
-      -1,
-      -1,
-      0
-    ],
+    "DepotId": 2,
+    "DresseurId": 2,
     "IndexPokemonsEquipesSerialises": "[\r\n  0,\r\n  -1,\r\n  -1\r\n]"
   },
-  "StatistiquesId": 4,
-  "Invitations": [],
+  "DepotId": 2,
+  "StatistiquesId": 2,
   "FirstName": "Bastien",
   "Age": 23,
-  "Money": 5000,
-  "PrintMoney": "5000$",
-  "IsValid": true,
+  "Money": 5600,
   "Name": "Goulet",
-  "Level": 1,
-  "XpGaugeId": 16
+  "Level": 2,
+  "XpGaugeId": 3
 }

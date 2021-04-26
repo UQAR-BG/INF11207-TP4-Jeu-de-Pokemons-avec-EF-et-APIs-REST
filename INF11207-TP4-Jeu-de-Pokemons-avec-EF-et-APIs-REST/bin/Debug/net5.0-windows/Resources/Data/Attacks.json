@@ -742,5 +742,11 @@
 		"Name": "Brine",
 		"Type": "Water",
 		"Damage": 5.2
+	},
+	{
+		"AttaqueId": 125,
+		"Name": "Blizzard",
+		"Type": "Ice",
+		"Damage": 12.8
 	}
 ]

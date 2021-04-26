@@ -88,8 +88,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
             Dresseur.ModifierArgent(-Invitation.MiseCreateur);
 
             int mise = Invitation.MiseCreateur + InvitationSelectionne.MiseCreateur;
-            Dresseur adversaire = Resultats[0].Createur;
-            adversaire.Depot.RechargerEmplacements();
+            Dresseur adversaire = Dresseur.GetDresseur(1);
             Game.Combat = new Combat(Dresseur, adversaire, mise);
 
             Game.Naviguer("combats");

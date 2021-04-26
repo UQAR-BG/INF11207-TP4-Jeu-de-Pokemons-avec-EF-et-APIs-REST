@@ -12,7 +12,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public JaugeVie(int maxValue) : base(maxValue) 
         {
-            Reinitialiser();
+            Value = MaxValue;
         }
 
         [JsonConstructor]
@@ -21,6 +21,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
         public void Reinitialiser()
         {
             Value = MaxValue;
+            UpdateHpGauge(GaugeId, Value);
         }
 
         public void PerdreDeLaVie(int hp)

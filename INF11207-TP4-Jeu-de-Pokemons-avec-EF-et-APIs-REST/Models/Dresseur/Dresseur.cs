@@ -2,10 +2,11 @@
 using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Interfaces;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 {
-    public class Dresseur : Personnage, ICombattant
+    public partial class Dresseur : Personnage, ICombattant
     {
         private string firstName;
         private int age;
@@ -16,14 +17,23 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         public int DresseurId { get; set; }
 
+        [NotMapped]
+        [JsonIgnore]
         public GuidePourDebloquerPokemons Guide { get; set; }
 
+        [NotMapped]
         public DepotPokemons Depot { get; set; }
 
+        public int DepotId { get; set; }
+
         public int StatistiquesId { get; set; }
+
+        [NotMapped]
         [JsonIgnore]
         public Statistiques Statistiques { get; set; }
 
+        [NotMapped]
+        [JsonIgnore]
         public List<Invitation> Invitations { get; set; }
 
         public string FirstName
@@ -65,11 +75,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        [NotMapped]
+        [JsonIgnore]
         public string PrintMoney
         {
             get { return $"{Money}$"; }
         }
 
+        [NotMapped]
         [JsonIgnore]
         public Pokemon PokemonEquipe
         {
@@ -91,18 +104,17 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        [NotMapped]
+        [JsonIgnore]
         public bool IsValid
         {
             get { return isValid; }
         }
 
         [JsonConstructor]
-        public Dresseur()
+        public Dresseur() 
         {
-            Depot = new DepotPokemons();
             Invitations = new List<Invitation>();
-            XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
-            Statistiques = Statistiques.GetStatistique(StatistiquesId);
         }
 
         public Dresseur(int level, string name = "", string firstName = "", int age = 18, int experience = 100, int money = 5000) : base(name, level, experience)
@@ -116,6 +128,14 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
             Invitations = new List<Invitation>();
             Statistiques = new Statistiques(money, 1);
+        }
+
+        public void ChargerProprietesDepuisBd()
+        {
+            XpGauge = JaugeXp.GetXpGauge(XpGaugeId);
+            Guide = new GuidePourDebloquerPokemons(Level);
+            Depot = DepotPokemons.GetDepot(DresseurId);
+            Statistiques = Statistiques.GetStatistique(StatistiquesId);
         }
 
         public bool EncorePokemonsValides()
@@ -194,6 +214,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 Statistiques.MontantDepense -= montant;
                 Money += montant;
             }
+            UpdateDresseur(DresseurId, Money, Level);
         }
 
         public Pokemon Acheter(Pokemon pokemon)

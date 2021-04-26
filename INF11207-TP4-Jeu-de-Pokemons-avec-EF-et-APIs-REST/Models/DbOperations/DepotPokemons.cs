@@ -74,6 +74,18 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             }
         }
 
+        public static void UpdateDepot(int depotId, int dresseurId)
+        {
+            JeuDePokemonsDbContext context = new JeuDePokemonsDbContext();
+            DepotPokemons depot = context.Depots.Find(depotId);
+
+            if (depot != null)
+            {
+                depot.DresseurId = dresseurId;
+                context.SaveChanges();
+            }
+        }
+
         private static string GenererIndexPokemonsEquipes(List<int> indexPokemonsEquipes)
         {
             string indexPokemonsEquipesSerialises = Loader.GenererJson(indexPokemonsEquipes);

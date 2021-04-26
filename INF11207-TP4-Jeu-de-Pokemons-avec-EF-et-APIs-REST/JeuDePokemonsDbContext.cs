@@ -1,6 +1,7 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
 using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
 {
@@ -15,6 +16,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
         public DbSet<JaugeVie> HealthGauges { get; set; }
         public DbSet<Pokemon> Pokemons { get; set; }
         public DbSet<DepotPokemons> Depots { get; set; }
+        public DbSet<Dresseur> Dresseurs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
@@ -65,19 +67,43 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(s => s.CombatsTotal).IsRequired();
                 e.Property(s => s.CombatsGagnes).IsRequired();
                 e.Property(s => s.CombatsPerdus).IsRequired();
+                e.HasData(new Statistiques(5000, 1)
+                {
+                    StatistiquesId = 1
+                });
             });
 
             modelBuilder.Entity<JaugeXp>(e => {
                 e.HasKey(j => j.GaugeId);
                 e.Property(j => j.MaxValue).IsRequired();
                 e.Property(j => j.Value).IsRequired();
+                e.HasData(new List<JaugeXp>() {
+                    new JaugeXp(100) { GaugeId = 1 },
+                    new JaugeXp(100) { GaugeId = 2 },
+                });
             });
 
             modelBuilder.Entity<JaugeVie>(e => {
                 e.HasKey(j => j.GaugeId);
                 e.Property(j => j.MaxValue).IsRequired();
                 e.Property(j => j.Value).IsRequired();
+                e.HasData(new JaugeVie(50)
+                {
+                    GaugeId = 1
+                });
             });
+
+            List<Pokemon> pokemonsDeBase = Pokemon.ChargerPokemonDeBase();
+            Pokemon pokemon = (Pokemon)pokemonsDeBase[0].Clone();
+            pokemon.Id = 152;
+            pokemon.Achete = true;
+            pokemon.DepotId = 1;
+            pokemon.HpGaugeId = 1;
+            pokemon.XpGaugeId = 1;
+            pokemonsDeBase.Add(pokemon);
+
+            Dresseur adversaire;
+            Loader.Charger(out adversaire, "Resources/Data/Adversaire.json");
 
             modelBuilder.Entity<Pokemon>(e =>
             {
@@ -99,13 +125,34 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST
                 e.Property(p => p.Achete).IsRequired();
                 e.Property(p => p.Equipe).IsRequired();
                 e.Property(p => p.Emplacement).IsRequired();
-                e.HasData(Pokemon.ChargerPokemonDeBase());
+                e.HasData(pokemonsDeBase);
             });
 
-            modelBuilder.Entity<DepotPokemons>(e => {
+            modelBuilder.Entity<DepotPokemons>(e =>
+            {
                 e.HasKey(d => d.DepotId);
                 e.Property(d => d.DresseurId);
                 e.Property(d => d.IndexPokemonsEquipesSerialises);
+                e.HasData(new DepotPokemons()
+                {
+                    DepotId = 1,
+                    DresseurId = 1,
+                    IndexPokemonsEquipesSerialises = adversaire.Depot.IndexPokemonsEquipesSerialises
+                });
+            });
+
+            modelBuilder.Entity<Dresseur>(e =>
+            {
+                e.HasKey(d => d.DresseurId);
+                e.Property(d => d.Name).IsRequired();
+                e.Property(d => d.FirstName).IsRequired();
+                e.Property(d => d.Age).IsRequired();
+                e.Property(d => d.Money).IsRequired();
+                e.Property(d => d.Level).IsRequired();
+                e.Property(d => d.XpGaugeId).IsRequired();
+                e.Property(d => d.StatistiquesId);
+                e.Property(d => d.DepotId);
+                e.HasData(adversaire);
             });
         }
     }

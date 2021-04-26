@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
 {
     [DbContext(typeof(JeuDePokemonsDbContext))]
-    [Migration("20210421184925_Creation-table-Correspondances")]
-    partial class CreationtableCorrespondances
+    [Migration("20210426023341_Ajout-premiere-jauge-vie")]
+    partial class Ajoutpremierejaugevie
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,905 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Attaque", b =>
+                {
+                    b.Property<int>("AttaqueId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Damage")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("AttaqueId");
+
+                    b.ToTable("Attaques");
+
+                    b.HasData(
+                        new
+                        {
+                            AttaqueId = 1,
+                            Damage = 5.4000000000000004,
+                            Name = "Vine Whip",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 2,
+                            Damage = 5.4500000000000002,
+                            Name = "Tackle",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 3,
+                            Damage = 10.6,
+                            Name = "Sludge Bomb",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 4,
+                            Damage = 8.3499999999999996,
+                            Name = "Seed Bomb",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 5,
+                            Damage = 12.5,
+                            Name = "Power Whip",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 6,
+                            Damage = 5.1500000000000004,
+                            Name = "Razor Leaf",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 7,
+                            Damage = 12.25,
+                            Name = "Solar Beam",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 8,
+                            Damage = 10.15,
+                            Name = "Petal Blizzard",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 9,
+                            Damage = 4.75,
+                            Name = "Ember",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 10,
+                            Damage = 6.0,
+                            Name = "Scratch",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 11,
+                            Damage = 4.0499999999999998,
+                            Name = "Flame Charge",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 12,
+                            Damage = 7.1500000000000004,
+                            Name = "Flame Burst",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 13,
+                            Damage = 9.5,
+                            Name = "Flamethrower",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 14,
+                            Damage = 7.1500000000000004,
+                            Name = "Fire Punch",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 15,
+                            Damage = 6.0,
+                            Name = "Wing Attack",
+                            Type = 10
+                        },
+                        new
+                        {
+                            AttaqueId = 16,
+                            Damage = 12.199999999999999,
+                            Name = "Fire Blast",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 17,
+                            Damage = 10.949999999999999,
+                            Name = "Dragon Claw",
+                            Type = 16
+                        },
+                        new
+                        {
+                            AttaqueId = 18,
+                            Damage = 5.4500000000000002,
+                            Name = "Bubble",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 19,
+                            Damage = 5.2999999999999998,
+                            Name = "Aqua Jet",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 20,
+                            Damage = 9.5500000000000007,
+                            Name = "Aqua Tail",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 21,
+                            Damage = 5.2999999999999998,
+                            Name = "Water Pulse",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 22,
+                            Damage = 6.0,
+                            Name = "Water Gun",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 23,
+                            Damage = 6.0,
+                            Name = "Bite",
+                            Type = 14
+                        },
+                        new
+                        {
+                            AttaqueId = 24,
+                            Damage = 8.9000000000000004,
+                            Name = "Ice Beam",
+                            Type = 5
+                        },
+                        new
+                        {
+                            AttaqueId = 25,
+                            Damage = 11.85,
+                            Name = "Hydro Pump",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 26,
+                            Damage = 7.7000000000000002,
+                            Name = "Flash Cannon",
+                            Type = 9
+                        },
+                        new
+                        {
+                            AttaqueId = 27,
+                            Damage = 5.5499999999999998,
+                            Name = "Bug Bite",
+                            Type = 12
+                        },
+                        new
+                        {
+                            AttaqueId = 28,
+                            Damage = 4.4000000000000004,
+                            Name = "Struggle",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 29,
+                            Damage = 4.9500000000000002,
+                            Name = "Confusion",
+                            Type = 11
+                        },
+                        new
+                        {
+                            AttaqueId = 30,
+                            Damage = 8.8000000000000007,
+                            Name = "Bug Buzz",
+                            Type = 12
+                        },
+                        new
+                        {
+                            AttaqueId = 31,
+                            Damage = 9.8000000000000007,
+                            Name = "Psychic",
+                            Type = 11
+                        },
+                        new
+                        {
+                            AttaqueId = 32,
+                            Damage = 7.25,
+                            Name = "Signal Beam",
+                            Type = 12
+                        },
+                        new
+                        {
+                            AttaqueId = 33,
+                            Damage = 5.1500000000000004,
+                            Name = "Poison Sting",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 34,
+                            Damage = 5.7000000000000002,
+                            Name = "Poison Jab",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 35,
+                            Damage = 5.1500000000000004,
+                            Name = "Aerial Ace",
+                            Type = 10
+                        },
+                        new
+                        {
+                            AttaqueId = 36,
+                            Damage = 8.3499999999999996,
+                            Name = "X-Scissor",
+                            Type = 12
+                        },
+                        new
+                        {
+                            AttaqueId = 37,
+                            Damage = 3.75,
+                            Name = "Quick Attack",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 38,
+                            Damage = 4.6500000000000004,
+                            Name = "Twister",
+                            Type = 16
+                        },
+                        new
+                        {
+                            AttaqueId = 39,
+                            Damage = 4.5499999999999998,
+                            Name = "Air Cutter",
+                            Type = 10
+                        },
+                        new
+                        {
+                            AttaqueId = 40,
+                            Damage = 5.6500000000000004,
+                            Name = "Steel Wing",
+                            Type = 9
+                        },
+                        new
+                        {
+                            AttaqueId = 41,
+                            Damage = 12.5,
+                            Name = "Hurricane",
+                            Type = 10
+                        },
+                        new
+                        {
+                            AttaqueId = 42,
+                            Damage = 6.0499999999999998,
+                            Name = "Dig",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 43,
+                            Damage = 8.3499999999999996,
+                            Name = "Hyper Fang",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 44,
+                            Damage = 12.800000000000001,
+                            Name = "Body Slam",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 45,
+                            Damage = 12.0,
+                            Name = "Hyper Beam",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 46,
+                            Damage = 4.3499999999999996,
+                            Name = "Peck",
+                            Type = 10
+                        },
+                        new
+                        {
+                            AttaqueId = 47,
+                            Damage = 7.4000000000000004,
+                            Name = "Drill Peck",
+                            Type = 10
+                        },
+                        new
+                        {
+                            AttaqueId = 48,
+                            Damage = 7.3499999999999996,
+                            Name = "Drill Run",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 49,
+                            Damage = 4.75,
+                            Name = "Acid",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 50,
+                            Damage = 3.1499999999999999,
+                            Name = "Wrap",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 51,
+                            Damage = 10.85,
+                            Name = "Gunk Shot",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 52,
+                            Damage = 6.4500000000000002,
+                            Name = "Dark Pulse",
+                            Type = 14
+                        },
+                        new
+                        {
+                            AttaqueId = 53,
+                            Damage = 10.300000000000001,
+                            Name = "Sludge Wave",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 54,
+                            Damage = 4.1500000000000004,
+                            Name = "Thunder Shock",
+                            Type = 3
+                        },
+                        new
+                        {
+                            AttaqueId = 55,
+                            Damage = 7.0,
+                            Name = "Discharge",
+                            Type = 3
+                        },
+                        new
+                        {
+                            AttaqueId = 56,
+                            Damage = 10.199999999999999,
+                            Name = "Thunderbolt",
+                            Type = 3
+                        },
+                        new
+                        {
+                            AttaqueId = 57,
+                            Damage = 11.65,
+                            Name = "Thunder",
+                            Type = 3
+                        },
+                        new
+                        {
+                            AttaqueId = 58,
+                            Damage = 5.0,
+                            Name = "Spark",
+                            Type = 3
+                        },
+                        new
+                        {
+                            AttaqueId = 59,
+                            Damage = 9.4000000000000004,
+                            Name = "Brick Break",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 60,
+                            Damage = 8.3499999999999996,
+                            Name = "Thunder Punch",
+                            Type = 3
+                        },
+                        new
+                        {
+                            AttaqueId = 61,
+                            Damage = 5.4500000000000002,
+                            Name = "Mud Shot",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 62,
+                            Damage = 7.7999999999999998,
+                            Name = "Rock Slide",
+                            Type = 13
+                        },
+                        new
+                        {
+                            AttaqueId = 63,
+                            Damage = 4.4000000000000004,
+                            Name = "Rock Tomb",
+                            Type = 13
+                        },
+                        new
+                        {
+                            AttaqueId = 64,
+                            Damage = 6.3499999999999996,
+                            Name = "Metal Claw",
+                            Type = 9
+                        },
+                        new
+                        {
+                            AttaqueId = 65,
+                            Damage = 11.9,
+                            Name = "Earthquake",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 66,
+                            Damage = 5.1500000000000004,
+                            Name = "Bulldoze",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 67,
+                            Damage = 5.2000000000000002,
+                            Name = "Poison Fang",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 68,
+                            Damage = 12.9,
+                            Name = "Stone Edge",
+                            Type = 13
+                        },
+                        new
+                        {
+                            AttaqueId = 69,
+                            Damage = 5.7000000000000002,
+                            Name = "Horn Attack",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 70,
+                            Damage = 3.75,
+                            Name = "Fury Cutter",
+                            Type = 12
+                        },
+                        new
+                        {
+                            AttaqueId = 71,
+                            Damage = 12.5,
+                            Name = "Megahorn",
+                            Type = 12
+                        },
+                        new
+                        {
+                            AttaqueId = 72,
+                            Damage = 6.5,
+                            Name = "Pound",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 73,
+                            Damage = 5.7000000000000002,
+                            Name = "Zen Headbutt",
+                            Type = 11
+                        },
+                        new
+                        {
+                            AttaqueId = 74,
+                            Damage = 3.2000000000000002,
+                            Name = "Disarming Voice",
+                            Type = 17
+                        },
+                        new
+                        {
+                            AttaqueId = 75,
+                            Damage = 10.35,
+                            Name = "Moonblast",
+                            Type = 17
+                        },
+                        new
+                        {
+                            AttaqueId = 76,
+                            Damage = 6.5499999999999998,
+                            Name = "Dazzling Gleam",
+                            Type = 17
+                        },
+                        new
+                        {
+                            AttaqueId = 77,
+                            Damage = 5.75,
+                            Name = "Feint Attack",
+                            Type = 14
+                        },
+                        new
+                        {
+                            AttaqueId = 78,
+                            Damage = 10.550000000000001,
+                            Name = "Heat Wave",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 79,
+                            Damage = 9.5,
+                            Name = "Play Rough",
+                            Type = 17
+                        },
+                        new
+                        {
+                            AttaqueId = 80,
+                            Damage = 4.8499999999999996,
+                            Name = "Ominous Wind",
+                            Type = 15
+                        },
+                        new
+                        {
+                            AttaqueId = 81,
+                            Damage = 8.3499999999999996,
+                            Name = "Cross Poison",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 82,
+                            Damage = 5.25,
+                            Name = "Psybeam",
+                            Type = 11
+                        },
+                        new
+                        {
+                            AttaqueId = 83,
+                            Damage = 5.5499999999999998,
+                            Name = "Mud Slap",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 84,
+                            Damage = 5.75,
+                            Name = "Mud Bomb",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 85,
+                            Damage = 5.0,
+                            Name = "Sucker Punch",
+                            Type = 14
+                        },
+                        new
+                        {
+                            AttaqueId = 86,
+                            Damage = 5.5499999999999998,
+                            Name = "Night Slash",
+                            Type = 14
+                        },
+                        new
+                        {
+                            AttaqueId = 87,
+                            Damage = 6.9000000000000004,
+                            Name = "Power Gem",
+                            Type = 13
+                        },
+                        new
+                        {
+                            AttaqueId = 88,
+                            Damage = 15.0,
+                            Name = "Cross Chop",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 89,
+                            Damage = 3.75,
+                            Name = "Karate Chop",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 90,
+                            Damage = 6.6500000000000004,
+                            Name = "Low Sweep",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 91,
+                            Damage = 4.1500000000000004,
+                            Name = "Low Kick",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 92,
+                            Damage = 4.3499999999999996,
+                            Name = "Flame Wheel",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 93,
+                            Damage = 5.9500000000000002,
+                            Name = "Fire Fang",
+                            Type = 1
+                        },
+                        new
+                        {
+                            AttaqueId = 94,
+                            Damage = 5.4500000000000002,
+                            Name = "Bubble",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 95,
+                            Damage = 5.1500000000000004,
+                            Name = "Bubble Beam",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 96,
+                            Damage = 6.9000000000000004,
+                            Name = "Scald",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 97,
+                            Damage = 7.1500000000000004,
+                            Name = "Submission",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 98,
+                            Damage = 6.4500000000000002,
+                            Name = "Ice Punch",
+                            Type = 5
+                        },
+                        new
+                        {
+                            AttaqueId = 99,
+                            Damage = 7.4000000000000004,
+                            Name = "Psyshock",
+                            Type = 11
+                        },
+                        new
+                        {
+                            AttaqueId = 100,
+                            Damage = 7.2999999999999998,
+                            Name = "Shadow Ball",
+                            Type = 15
+                        },
+                        new
+                        {
+                            AttaqueId = 101,
+                            Damage = 6.1500000000000004,
+                            Name = "Psycho Cut",
+                            Type = 11
+                        },
+                        new
+                        {
+                            AttaqueId = 102,
+                            Damage = 4.1500000000000004,
+                            Name = "Bullet Punch",
+                            Type = 9
+                        },
+                        new
+                        {
+                            AttaqueId = 103,
+                            Damage = 9.8000000000000007,
+                            Name = "Leaf Blade",
+                            Type = 4
+                        },
+                        new
+                        {
+                            AttaqueId = 104,
+                            Damage = 4.4000000000000004,
+                            Name = "Rock Throw",
+                            Type = 13
+                        },
+                        new
+                        {
+                            AttaqueId = 105,
+                            Damage = 4.8499999999999996,
+                            Name = "Ancient Power",
+                            Type = 13
+                        },
+                        new
+                        {
+                            AttaqueId = 106,
+                            Damage = 5.3499999999999996,
+                            Name = "Magnet Bomb",
+                            Type = 9
+                        },
+                        new
+                        {
+                            AttaqueId = 107,
+                            Damage = 6.6500000000000004,
+                            Name = "Cut",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 108,
+                            Damage = 5.0,
+                            Name = "Swift",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 109,
+                            Damage = 5.3499999999999996,
+                            Name = "Ice Shard",
+                            Type = 5
+                        },
+                        new
+                        {
+                            AttaqueId = 110,
+                            Damage = 5.0,
+                            Name = "Lick",
+                            Type = 15
+                        },
+                        new
+                        {
+                            AttaqueId = 111,
+                            Damage = 3.2999999999999998,
+                            Name = "Icy Wind",
+                            Type = 5
+                        },
+                        new
+                        {
+                            AttaqueId = 112,
+                            Damage = 5.5499999999999998,
+                            Name = "Frost Breath",
+                            Type = 5
+                        },
+                        new
+                        {
+                            AttaqueId = 113,
+                            Damage = 5.75,
+                            Name = "Sludge",
+                            Type = 7
+                        },
+                        new
+                        {
+                            AttaqueId = 114,
+                            Damage = 5.7999999999999998,
+                            Name = "Shadow Claw",
+                            Type = 15
+                        },
+                        new
+                        {
+                            AttaqueId = 115,
+                            Damage = 7.5,
+                            Name = "Iron Head",
+                            Type = 9
+                        },
+                        new
+                        {
+                            AttaqueId = 116,
+                            Damage = 5.9500000000000002,
+                            Name = "Vice Grip",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 117,
+                            Damage = 5.2999999999999998,
+                            Name = "Rock Smash",
+                            Type = 6
+                        },
+                        new
+                        {
+                            AttaqueId = 118,
+                            Damage = 7.7999999999999998,
+                            Name = "Bone Club",
+                            Type = 8
+                        },
+                        new
+                        {
+                            AttaqueId = 119,
+                            Damage = 7.1500000000000004,
+                            Name = "Stomp",
+                            Type = 0
+                        },
+                        new
+                        {
+                            AttaqueId = 120,
+                            Damage = 9.0500000000000007,
+                            Name = "Dragon Pulse",
+                            Type = 16
+                        },
+                        new
+                        {
+                            AttaqueId = 121,
+                            Damage = 6.0,
+                            Name = "Dragon Breath",
+                            Type = 16
+                        },
+                        new
+                        {
+                            AttaqueId = 122,
+                            Damage = 4.4500000000000002,
+                            Name = "Draining Kiss",
+                            Type = 17
+                        },
+                        new
+                        {
+                            AttaqueId = 123,
+                            Damage = 0.0,
+                            Name = "Splash",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 124,
+                            Damage = 5.2000000000000002,
+                            Name = "Brine",
+                            Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 125,
+                            Damage = 12.800000000000001,
+                            Name = "Blizzard",
+                            Type = 5
+                        });
+                });
 
             modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Correspondance", b =>
                 {
@@ -1638,6 +2537,437 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Attack = 16,
                             Defend = 16,
                             Effectiveness = 2.0
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Evolution", b =>
+                {
+                    b.Property<int>("EvolutionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("To")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EvolutionId");
+
+                    b.ToTable("Evolutions");
+
+                    b.HasData(
+                        new
+                        {
+                            EvolutionId = 1,
+                            Level = 16,
+                            To = "Ivysaur"
+                        },
+                        new
+                        {
+                            EvolutionId = 2,
+                            Level = 32,
+                            To = "Venusaur"
+                        },
+                        new
+                        {
+                            EvolutionId = 3,
+                            Level = 16,
+                            To = "Charmeleon"
+                        },
+                        new
+                        {
+                            EvolutionId = 4,
+                            Level = 36,
+                            To = "Charizard"
+                        },
+                        new
+                        {
+                            EvolutionId = 5,
+                            Level = 16,
+                            To = "Wartortle"
+                        },
+                        new
+                        {
+                            EvolutionId = 6,
+                            Level = 36,
+                            To = "Blastoise"
+                        },
+                        new
+                        {
+                            EvolutionId = 7,
+                            Level = 7,
+                            To = "Metapod"
+                        },
+                        new
+                        {
+                            EvolutionId = 8,
+                            Level = 10,
+                            To = "Butterfree"
+                        },
+                        new
+                        {
+                            EvolutionId = 9,
+                            Level = 7,
+                            To = "Kakuna"
+                        },
+                        new
+                        {
+                            EvolutionId = 10,
+                            Level = 10,
+                            To = "Beedrill"
+                        },
+                        new
+                        {
+                            EvolutionId = 11,
+                            Level = 18,
+                            To = "Pidgeotto"
+                        },
+                        new
+                        {
+                            EvolutionId = 12,
+                            Level = 36,
+                            To = "Pidgeot"
+                        },
+                        new
+                        {
+                            EvolutionId = 13,
+                            Level = 20,
+                            To = "Raticate"
+                        },
+                        new
+                        {
+                            EvolutionId = 14,
+                            Level = 20,
+                            To = "Fearow"
+                        },
+                        new
+                        {
+                            EvolutionId = 15,
+                            Level = 22,
+                            To = "Arbok"
+                        },
+                        new
+                        {
+                            EvolutionId = 16,
+                            Level = 22,
+                            To = "Sandslash"
+                        },
+                        new
+                        {
+                            EvolutionId = 17,
+                            Level = 16,
+                            To = "Nidorina"
+                        },
+                        new
+                        {
+                            EvolutionId = 18,
+                            Level = 16,
+                            To = "Nidorino"
+                        },
+                        new
+                        {
+                            EvolutionId = 19,
+                            Level = 22,
+                            To = "Golbat"
+                        },
+                        new
+                        {
+                            EvolutionId = 20,
+                            Level = 21,
+                            To = "Gloom"
+                        },
+                        new
+                        {
+                            EvolutionId = 21,
+                            Level = 24,
+                            To = "Parasect"
+                        },
+                        new
+                        {
+                            EvolutionId = 22,
+                            Level = 31,
+                            To = "Venomoth"
+                        },
+                        new
+                        {
+                            EvolutionId = 23,
+                            Level = 26,
+                            To = "Dugtrio"
+                        },
+                        new
+                        {
+                            EvolutionId = 24,
+                            Level = 28,
+                            To = "Persian"
+                        },
+                        new
+                        {
+                            EvolutionId = 25,
+                            Level = 33,
+                            To = "Golduck"
+                        },
+                        new
+                        {
+                            EvolutionId = 26,
+                            Level = 28,
+                            To = "Primeape"
+                        },
+                        new
+                        {
+                            EvolutionId = 27,
+                            Level = 25,
+                            To = "Poliwhirl"
+                        },
+                        new
+                        {
+                            EvolutionId = 28,
+                            Level = 16,
+                            To = "Kadabra"
+                        },
+                        new
+                        {
+                            EvolutionId = 29,
+                            Level = 28,
+                            To = "Machoke"
+                        },
+                        new
+                        {
+                            EvolutionId = 30,
+                            Level = 21,
+                            To = "Weepinbell"
+                        },
+                        new
+                        {
+                            EvolutionId = 31,
+                            Level = 30,
+                            To = "Tentacruel"
+                        },
+                        new
+                        {
+                            EvolutionId = 32,
+                            Level = 25,
+                            To = "Graveler"
+                        },
+                        new
+                        {
+                            EvolutionId = 33,
+                            Level = 40,
+                            To = "Rapidash"
+                        },
+                        new
+                        {
+                            EvolutionId = 34,
+                            Level = 30,
+                            To = "Magneton"
+                        },
+                        new
+                        {
+                            EvolutionId = 35,
+                            Level = 31,
+                            To = "Dodrio"
+                        },
+                        new
+                        {
+                            EvolutionId = 36,
+                            Level = 34,
+                            To = "Dewgong"
+                        },
+                        new
+                        {
+                            EvolutionId = 37,
+                            Level = 38,
+                            To = "Muk"
+                        },
+                        new
+                        {
+                            EvolutionId = 38,
+                            Level = 25,
+                            To = "Haunter"
+                        },
+                        new
+                        {
+                            EvolutionId = 39,
+                            Level = 26,
+                            To = "Hypno"
+                        },
+                        new
+                        {
+                            EvolutionId = 40,
+                            Level = 28,
+                            To = "Kingler"
+                        },
+                        new
+                        {
+                            EvolutionId = 41,
+                            Level = 30,
+                            To = "Electrode"
+                        },
+                        new
+                        {
+                            EvolutionId = 42,
+                            Level = 28,
+                            To = "Marowak"
+                        },
+                        new
+                        {
+                            EvolutionId = 43,
+                            Level = 35,
+                            To = "Weezing"
+                        },
+                        new
+                        {
+                            EvolutionId = 44,
+                            Level = 42,
+                            To = "Rhydon"
+                        },
+                        new
+                        {
+                            EvolutionId = 45,
+                            Level = 32,
+                            To = "Seadra"
+                        },
+                        new
+                        {
+                            EvolutionId = 46,
+                            Level = 33,
+                            To = "Seaking"
+                        },
+                        new
+                        {
+                            EvolutionId = 47,
+                            Level = 20,
+                            To = "Gyarados"
+                        },
+                        new
+                        {
+                            EvolutionId = 48,
+                            Level = 40,
+                            To = "Omastar"
+                        },
+                        new
+                        {
+                            EvolutionId = 49,
+                            Level = 40,
+                            To = "Kabutops"
+                        },
+                        new
+                        {
+                            EvolutionId = 50,
+                            Level = 30,
+                            To = "Dragonair"
+                        },
+                        new
+                        {
+                            EvolutionId = 51,
+                            Level = 55,
+                            To = "Dragonite"
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeVie", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("HealthGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 50,
+                            Value = 50
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeXp", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("XpGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 100,
+                            Value = 0
+                        },
+                        new
+                        {
+                            GaugeId = 2,
+                            MaxValue = 100,
+                            Value = 0
+                        });
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Statistiques", b =>
+                {
+                    b.Property<int>("StatistiquesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CombatsGagnes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CombatsPerdus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CombatsTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MontantAccumule")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MontantDepense")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonsAchetes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonsDebloques")
+                        .HasColumnType("int");
+
+                    b.HasKey("StatistiquesId");
+
+                    b.ToTable("Statistiques");
+
+                    b.HasData(
+                        new
+                        {
+                            StatistiquesId = 1,
+                            CombatsGagnes = 0,
+                            CombatsPerdus = 0,
+                            CombatsTotal = 0,
+                            MontantAccumule = 5000,
+                            MontantDepense = 0,
+                            PokemonsAchetes = 1,
+                            PokemonsDebloques = 1
                         });
                 });
 #pragma warning restore 612, 618

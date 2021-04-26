@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
 {
     [DbContext(typeof(JeuDePokemonsDbContext))]
-    [Migration("20210423174620_Creation-table-Stats")]
-    partial class CreationtableStats
+    [Migration("20210426022941_Ajout-premieres-jauges-vie")]
+    partial class Ajoutpremieresjaugesvie
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -909,6 +909,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Damage = 5.2000000000000002,
                             Name = "Brine",
                             Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 125,
+                            Damage = 12.800000000000001,
+                            Name = "Blizzard",
+                            Type = 5
                         });
                 });
 
@@ -2860,6 +2867,56 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                         });
                 });
 
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeVie", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("HealthGauges");
+                });
+
+            modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.JaugeXp", b =>
+                {
+                    b.Property<int>("GaugeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MaxValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("GaugeId");
+
+                    b.ToTable("XpGauges");
+
+                    b.HasData(
+                        new
+                        {
+                            GaugeId = 1,
+                            MaxValue = 100,
+                            Value = 0
+                        },
+                        new
+                        {
+                            GaugeId = 2,
+                            MaxValue = 100,
+                            Value = 0
+                        });
+                });
+
             modelBuilder.Entity("INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models.Statistiques", b =>
                 {
                     b.Property<int>("StatistiquesId")
@@ -2891,6 +2948,19 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     b.HasKey("StatistiquesId");
 
                     b.ToTable("Statistiques");
+
+                    b.HasData(
+                        new
+                        {
+                            StatistiquesId = 1,
+                            CombatsGagnes = 0,
+                            CombatsPerdus = 0,
+                            CombatsTotal = 0,
+                            MontantAccumule = 5000,
+                            MontantDepense = 0,
+                            PokemonsAchetes = 1,
+                            PokemonsDebloques = 1
+                        });
                 });
 #pragma warning restore 612, 618
         }

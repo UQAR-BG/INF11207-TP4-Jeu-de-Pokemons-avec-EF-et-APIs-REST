@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
 {
     [DbContext(typeof(JeuDePokemonsDbContext))]
-    [Migration("20210423190146_Creation-tables-Gauges")]
-    partial class CreationtablesGauges
+    [Migration("20210426022624_Ajout-premiere-statistique")]
+    partial class Ajoutpremierestatistique
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -909,6 +909,13 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                             Damage = 5.2000000000000002,
                             Name = "Brine",
                             Type = 2
+                        },
+                        new
+                        {
+                            AttaqueId = 125,
+                            Damage = 12.800000000000001,
+                            Name = "Blizzard",
+                            Type = 5
                         });
                 });
 
@@ -2927,6 +2934,19 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Migrations
                     b.HasKey("StatistiquesId");
 
                     b.ToTable("Statistiques");
+
+                    b.HasData(
+                        new
+                        {
+                            StatistiquesId = 1,
+                            CombatsGagnes = 0,
+                            CombatsPerdus = 0,
+                            CombatsTotal = 0,
+                            MontantAccumule = 5000,
+                            MontantDepense = 0,
+                            PokemonsAchetes = 1,
+                            PokemonsDebloques = 1
+                        });
                 });
 #pragma warning restore 612, 618
         }

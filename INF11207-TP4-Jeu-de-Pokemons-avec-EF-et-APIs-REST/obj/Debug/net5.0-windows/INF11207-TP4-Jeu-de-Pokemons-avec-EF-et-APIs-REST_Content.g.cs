@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/adversaire.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/attackseffectiveness.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/correspondanceniveaupokemons.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/data/evolutions.json")]

@@ -1,5 +1,4 @@
 ﻿using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models;
-using INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Services;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -39,11 +38,10 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
 
         private void ChargerSauvegarde()
         {
-            Dresseur sauvegarde;
-            if (Loader.Charger(out sauvegarde, Game.CheminVersSauvegarde))
+            Game.Dresseur = Dresseur.GetDresseur(2);
+
+            if (Game.Dresseur.DresseurId > 0)
             {
-                Game.Dresseur = sauvegarde;
-                Game.Dresseur.Depot = DepotPokemons.GetDepot(1);
                 MessageBox.Show("Sauvegarde chargée avec succès.", "Sauvegarde chargée", MessageBoxButton.OK);
                 Game.Naviguer("joueur");
             }
