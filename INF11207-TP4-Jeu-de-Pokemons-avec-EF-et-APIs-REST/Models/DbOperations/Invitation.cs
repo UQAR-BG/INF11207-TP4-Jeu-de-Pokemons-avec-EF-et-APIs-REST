@@ -82,16 +82,16 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
                 Dresseur createur = Dresseur.GetDresseur(invitation.CreateurId);
                 if (invitation.CreateurId == 1)
                 {
-                    return new Combat(adversaire, createur, miseTotale);
+                    return new Combat(adversaire, createur, miseTotale, invitationId);
                 }
                 else
                 {
-                    return new Combat(createur, Dresseur.GetDresseur(1), miseTotale);
+                    return new Combat(createur, Dresseur.GetDresseur(1), miseTotale, invitationId);
                 }
             }
             else
             {
-                return new Combat(new Dresseur(1), new Dresseur(1), 0);
+                return new Combat(new Dresseur(1), new Dresseur(1), 0, 1);
             }
         }
 

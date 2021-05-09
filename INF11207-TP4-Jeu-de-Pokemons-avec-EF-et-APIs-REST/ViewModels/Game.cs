@@ -67,7 +67,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.ViewModels
             _pokemonsBase = Pokemon.GetPokemonsDeBase();
             _recherche = new Recherche();
             _recherche.Filtre = FiltreRecherche.Tous;
-            Combat = new Combat(new Dresseur(1), new Dresseur(1), 0);
+            Combat = new Combat(new Dresseur(1), new Dresseur(1), 0, 1);
         }
 
         public static void Naviguer(string destination)

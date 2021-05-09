@@ -13,6 +13,7 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
 
         private int indexParticipant;
         private int mise;
+        private int invitationId;
         private Dresseur joueur;
         private Dresseur adversaire;
         private Dresseur joueurActuel;
@@ -76,8 +77,9 @@ namespace INF11207_TP4_Jeu_de_Pokemons_avec_EF_et_APIs_REST.Models
             get { return joueurActuel == joueur; }
         }
 
-        public Combat(Dresseur joueur, Dresseur adversaire, int mise)
+        public Combat(Dresseur joueur, Dresseur adversaire, int mise, int invitationId)
         {
+            this.invitationId = invitationId;
             this.joueur = joueur;
             this.adversaire = adversaire;
             this.mise = mise;
